@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clastering</title>
+    <link rel="stylesheet"  href="clastering.css"/>
+</head>
+<body>
+    <div><h1>Отметьте точки на холсте</h1></div>
+    <div class="container">
+        <div class="canvas_clasterization">
+            <canvas id="canvas_for_clusterization" width="500" height="500"></canvas>
+        </div>
+        <div>
+            <p class="number_of_classes">Выберите количество кластеров для K-средних: </p>
+            <div class="range_info_div">
+                <div class="range">
+                    <label for="k_range">1</label>
+                    <input type="range" id="k_range" name="k" min="1" max="7" value="3"/>
+                    <label for="k_range">7</label>
+                </div>
+                <p><output id="k_value"></output></p>
+            </div>
+            <div class="count_of_points_text">Количество точек: 
+                <span id="count_of_points">0</span>
+            </div>
+            <div class="buttons_for_parameters">
+                <button id="start_clasterization" type="button">Кластеризовать</button>
+                <button id="clear_canvas" type="button">Очистить холст</button>
+            </div>
+        </div>
+    </div>
+    <a href="javascript:history.back()">Назад</a>
+    <script src="k_means.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+body {
+    font-family: Arial;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.range_info_div {
+    align-items: center;
+}
+
+input[type="range"] {
+    width: 200px;
+    height: 8px; 
+    border-radius: 5px;
+}
+
+
+.canvas_clasterization {
+    margin-bottom: 20px; 
+    margin-right: 100px;
+    margin-left: 50px;
+}
+
+.range_info_div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.count_of_points_text {
+    margin-bottom: 20px;
+}
+
+#canvas_for_clusterization {
+    border: 1px solid #000;
+    background: #d9e0d9;
+}
