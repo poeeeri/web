@@ -1,0 +1,9 @@
+h1 {
+    color: rgb(68, 66, 73);
+    font-size: 64px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+img {
+    height: 200px;
+    width: 200px;
+}
