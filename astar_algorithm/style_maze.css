@@ -1,0 +1,71 @@
+h1 {
+    color: rgb(0, 0, 0);
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(31, 30px);
+    grid-template-rows: repeat(31, 30px);
+    gap: 2px;
+    margin: 40px auto;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    background-color: rgb(68, 67, 68);
+    border: 1px solid #616161;
+    box-sizing: border-box;
+}
+
+.wall {
+    background-color:rgb(68, 67, 68);
+}
+
+.free {
+    background-color: white;
+
+}
+
+.start {
+    background-color: greenyellow;
+}
+
+.end {
+    background-color: red;
+}
+
+
+body {
+    background-color: rgb(143, 199, 216);
+
+}
+
+#generateButton {
+    width: 120px;
+    height: 50px;
+    background-color: rgb(224, 163, 114);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+    display: inline-flex;
+
+}
+
+#searchPath {
+    width: 120px;
+    height: 50px;
+    background-color: rgb(224, 163, 114);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: inline-flex;
+    
+}
+
+/* #clearField {
+    width: 120px;
+    height: 50px;
+    background-color: rgb(224, 163, 114);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: inline-flex;
+} */
