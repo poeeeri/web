@@ -2,12 +2,98 @@ body {
     font-family: Arial;
     margin: 0;
     padding: 20px;
+    background-image: url(komarustay.png),   
+    linear-gradient(to right, rgb(50, 72, 58), rgb(29, 76, 50));
+}
+
+button,
+button::after {
+-webkit-transition: all 0.3s;
+-moz-transition: all 0.3s;
+-o-transition: all 0.3s;
+transition: all 0.3s;
+}
+button {
+    background: none;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 10px auto;
+    padding: 10px 10px;
+    position: relative;
+    text-transform: uppercase;
+}
+button::before,
+button::after {
+    background: #fff;
+    content: '';
+    position: absolute;
+    z-index: -1;
+}
+button:hover {
+    color: #172b1d;
+}
+.button1::after {
+    height: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+.button1:hover:after {
+height: 100%;
+}
+
+h1 {
+    color: aliceblue;
+}
+
+p {
+    color:aliceblue;
+    /* background-color: rgb(21, 52, 41); */
+    
+}
+
+a {
+    flex: 1;
+    line-height: 3;
+    text-align: center;
+    background-size: 20px;
+    outline-color: transparent;
+}
+
+a:link,
+a:visited,
+a:focus {
+    /* background-color: rgb(6, 49, 35); */
+    color: black;
+}
+
+a:hover {
+    background-color: #4b695f;
+}
+
+a:active {
+    background-color: rgb(2, 26, 22);
+    color: white;
 }
 
 .container {
     display: flex;
     gap: 20px;
     align-items: center;
+}
+
+.text_h1 {
+    /* background-color: #022913; */
+    width: 500px;
+    height: 100px;
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 40px;
+    margin-left: 300px;
 }
 
 .range_info_div {
@@ -27,6 +113,10 @@ input[type="range"] {
     margin-left: 50px;
 }
 
+label {
+    color:#fff;
+}
+
 .range_info_div {
     display: flex;
     flex-direction: column;
@@ -36,9 +126,10 @@ input[type="range"] {
 
 .count_of_points_text {
     margin-bottom: 20px;
+    color: aliceblue;
 }
 
 #canvas_for_clusterization {
-    border: 1px solid #000;
-    background: #d9e0d9;
+    border: 2px solid #022913;
+    background: #9ab49a;
 }

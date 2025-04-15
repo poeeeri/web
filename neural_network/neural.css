@@ -1,0 +1,149 @@
+body {
+    font-family: Arial;
+    margin: 0;
+    padding: 20px;
+    background-image: url(komarustay.png),   
+    linear-gradient(to right, rgb(96, 126, 107), rgb(29, 76, 50));
+}
+
+h1 {
+    color: aliceblue;
+    margin-bottom: 80px;
+    text-align: center;
+    padding: 12px 20px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.178);
+    font-size: 1.1em;   
+    border: 1px solid #fff;
+}
+
+
+button,
+button::after {
+-webkit-transition: all 0.3s;
+-moz-transition: all 0.3s;
+-o-transition: all 0.3s;
+transition: all 0.3s;
+}
+
+button {
+    background-color: rgba(255, 255, 255, 0.043);
+    border: 1px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 10px auto;
+    padding: 10px 10px;
+    position: relative;
+    text-transform: uppercase;
+}
+button::before,
+button::after {
+    background: #fff;
+    content: '';
+    position: absolute;
+    z-index: -1;
+    border-radius: 5px;
+}
+button:hover {
+    color: #172b1d;
+}
+.button1::after {
+    height: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+.button1:hover:after {
+height: 100%;
+}
+
+
+.container {
+    gap: 20px;
+}
+
+.canvas_nn {
+    background-color: #2c544b88;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px; 
+    margin-right: 100px;
+    margin-left: 50px;
+}
+
+#canvas_for_nn {
+    border-radius: 8px;
+    border: 1px solid #000;
+    background: #ffffff;
+}
+
+a {
+    flex: 1;
+    line-height: 3;
+    text-align: center;
+    background-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    outline-color: transparent;
+}
+
+a:link,
+a:visited,
+a:focus {
+    background-color: rgba(6, 49, 35, 0.342);
+    color: black;
+    transition: all 0.3s;
+}
+
+a:hover {
+    background-color: #4b695f;
+    background: #fff;
+    content: '';
+    z-index: -1;
+    border-radius: 5px;
+}
+
+a:active {
+    background-color: rgb(2, 26, 22);
+    color: white;
+}
+
+
+
+.container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.buttons {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    min-width: 240px;
+}
+
+#output {
+    padding: 12px 20px;
+    color: aliceblue;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.178);
+    font-size: 1.1em;
+    text-align: center;
+    width: 100%;
+    border: 1px solid #fff;
+}
+
+.button1 {
+    width: 100%;
+    max-width: 240px;
+    text-align: center;
+}
