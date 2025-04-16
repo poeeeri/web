@@ -1,67 +1,13 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const slider = document.getElementById("k_range");
-    const output = document.getElementById("k_value");
-
-    output.textContent = slider.value;
-    
-    slider.addEventListener("input", function() {
-        output.textContent = this.value;
-    });
-});
-
-const canvas = document.getElementById("canvas_for_clusterization");
-const ctx = canvas.getContext("2d");
-const points = [];
-
-let means = [];
-let dataExtremes = null;
-let dataRange = null;
-
-document.getElementById("clear_canvas").addEventListener("click", function() {
-    points.length = 0;
-    means = [];
-    updateCanvas();
-});
-
-canvas.addEventListener("click", function(e) {
-    const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    points.push({x, y, color: "black"});
-    updateCanvas();
-});
-
-function updateCanvas() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    for (let i = 0; i < points.length; i++) {
-        let point = points[i];
-        drawPoint(point.x, point.y, point.color);
-    }
-    
-    document.getElementById("count_of_points").textContent = points.length;
-}
-
-function drawPoint(x, y, color, size = 5) {
-    ctx.beginPath();
-    ctx.arc(x, y, size, 0, Math.PI * 2);
-    ctx.fillStyle = color;
-    ctx.fill();     
-    ctx.closePath();
-}
-
 document.getElementById("start_clasterization").addEventListener("click", function() {
     if (points.length == 0) {
         alert("Добавьте точки на холст");
         return;
     }
-    
     const k = parseInt(document.getElementById("k_value").textContent);
-    setup(k);
+    setupKMeans(k);
 });
 
-function setup(k) {
+function setupKMeans(k) {
     dataExtremes = getDataExtremes(points);
     dataRange = getDataRange(dataExtremes);
     means = initMeans(k, dataExtremes, dataRange);
@@ -170,20 +116,12 @@ function drawClusters(assignments){
         const cluster = assignments[i];
         drawPoint(point.x, point.y, colors[cluster]);
     }
-
-    for (let i = 0; i < means.length; i++) {
-        const mean = means[i];
-        drawPoint(mean.x, mean.y, "black", 10);
-        ctx.font = '14px Arial';
-        ctx.fillText(`cluster_${i+1}`, mean.x + 10, mean.y + 5);
-    }
 }
 
 function runRec(){
     const assignments = makeAssignments();
     const moved = moveMeans(assignments);
     drawClusters(assignments);
-
     if (moved){
         setTimeout(run, 500);
     }

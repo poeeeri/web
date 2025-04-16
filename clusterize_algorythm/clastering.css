@@ -1,25 +1,25 @@
 body {
     font-family: Arial;
     margin: 0;
-    padding: 20px;
+    padding: 10px;
     background-image: url(komarustay.png),   
     linear-gradient(to right, rgb(50, 72, 58), rgb(29, 76, 50));
 }
 
 button,
 button::after {
--webkit-transition: all 0.3s;
--moz-transition: all 0.3s;
--o-transition: all 0.3s;
-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
 }
 button {
-    background: none;
+    background-color: #9ab49a50;
     border: 1px solid #fff;
     border-radius: 5px;
-    color: #fff;
+    color: #ffffff;
     display: block;
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: bold;
     margin: 10px auto;
     padding: 10px 10px;
@@ -28,13 +28,14 @@ button {
 }
 button::before,
 button::after {
-    background: #fff;
+    background: #779f93;
     content: '';
     position: absolute;
     z-index: -1;
 }
 button:hover {
     color: #172b1d;
+    background-color: #8ba79d;
 }
 .button1::after {
     height: 0;
@@ -64,15 +65,31 @@ a {
     outline-color: transparent;
 }
 
+a {
+    flex: 1;
+    line-height: 3;
+    text-align: center;
+    background-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    outline-color: transparent;
+}
+
 a:link,
 a:visited,
 a:focus {
-    /* background-color: rgb(6, 49, 35); */
-    color: black;
+    background-color: rgba(6, 49, 35, 0.342);
+    color: rgb(255, 255, 255);
+    transition: all 0.3s;
 }
 
 a:hover {
     background-color: #4b695f;
+    background: #fff;
+    color: #172b1d;
+    content: '';
+    z-index: -1;
+    border-radius: 5px;
 }
 
 a:active {
@@ -87,17 +104,24 @@ a:active {
 }
 
 .text_h1 {
-    /* background-color: #022913; */
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background-color: #02291377;
+    border-radius: 8px;
+
     width: 500px;
     height: 100px;
     text-align: center;
-    padding-top: 20px;
-    margin-bottom: 40px;
+    padding-top: 10px;
+    margin-bottom: 10px;
     margin-left: 300px;
 }
 
-.range_info_div {
+.range_eps_info_div{
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 10px;
 }
 
 input[type="range"] {
@@ -132,4 +156,5 @@ label {
 #canvas_for_clusterization {
     border: 2px solid #022913;
     background: #9ab49a;
+    margin: 20px;
 }

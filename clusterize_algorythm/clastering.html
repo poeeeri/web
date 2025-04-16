@@ -22,16 +22,31 @@
                 </div>
                 <p><output id="k_value"></output></p>
             </div>
+            <p class="number_of_classes">Выберите радиус для DBSCAN: </p>
+            <div class="range_eps_info_div">    
+                <div class="range">
+                    <label for="eps_range">15</label>
+                    <input type="range" id="eps_range" name="eps" min="15" max="100" value="30"/>
+                    <label for="eps_range">100</label>
+                </div>
+                <p><output id="eps_value"></output></p>
+            </div>
             <div class="count_of_points_text">Количество точек: 
                 <span id="count_of_points">0</span>
             </div>
             <div class="buttons_for_parameters">
-                <button class="button1" id="start_clasterization" type="button">Кластеризовать</button>
+                <button class="button1" id="start_clasterization" type="button">Кластеризовать с k-means</button>
+                <button class="button1" id="start_clasterization_with_dbscan" type="button">Кластеризовать с DBSCAN</button>
+                <button class="button1" id="start_clasterization_with_meanshift" type="button">Кластеризовать с meanshift</button>
                 <button class="button1" id="clear_canvas" type="button">Очистить холст</button>
             </div>
         </div>
     </div>
     <a href="javascript:history.back()">Назад</a>
+    <script src="canvas.js"></script>
+    <script src="range.js"></script>
     <script src="k_means.js"></script>
+    <script src="dbscan.js"></script>
+    <script src="meanshift.js"></script>
 </body>
 </html>
