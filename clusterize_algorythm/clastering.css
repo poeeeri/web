@@ -2,6 +2,99 @@ body {
     font-family: Arial;
     margin: 0;
     padding: 20px;
+    background-image: url(komarustay.png),   
+    linear-gradient(to right, rgb(96, 126, 107), rgb(29, 76, 50));
+}
+
+button,
+button::after {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+button {
+    background-color: #9ab49a50;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    color: #ffffff;
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px auto;
+    padding: 10px 10px;
+    position: relative;
+    text-transform: uppercase;
+}
+button::before,
+button::after {
+    background: #779f93;
+    content: '';
+    position: absolute;
+    z-index: -1;
+}
+button:hover {
+    color: #172b1d;
+    background-color: #8ba79d;
+}
+.button1::after {
+    height: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+.button1:hover:after {
+height: 100%;
+}
+
+h1 {
+    color: aliceblue;
+}
+
+p {
+    color:aliceblue;
+    /* background-color: rgb(21, 52, 41); */
+    
+}
+
+a {
+    flex: 1;
+    line-height: 3;
+    text-align: center;
+    background-size: 20px;
+    outline-color: transparent;
+}
+
+a {
+    flex: 1;
+    line-height: 3;
+    text-align: center;
+    background-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    outline-color: transparent;
+}
+
+a:link,
+a:visited,
+a:focus {
+    background-color: rgba(6, 49, 35, 0.342);
+    color: rgb(255, 255, 255);
+    transition: all 0.3s;
+}
+
+a:hover {
+    background-color: #4b695f;
+    background: #fff;
+    color: #172b1d;
+    content: '';
+    z-index: -1;
+    border-radius: 5px;
+}
+
+a:active {
+    background-color: rgb(2, 26, 22);
+    color: white;
 }
 
 .container {
@@ -10,8 +103,25 @@ body {
     align-items: center;
 }
 
-.range_info_div {
+.text_h1 {
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background-color: #02291377;
+    border-radius: 8px;
+
+    width: 500px;
+    height: 100px;
+    text-align: center;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 300px;
+}
+
+.range_eps_info_div{
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 10px;
 }
 
 input[type="range"] {
@@ -22,9 +132,22 @@ input[type="range"] {
 
 
 .canvas_clasterization {
+    background-color: #2c544b88;
+    border-radius: 8px;
+    padding: 20px;
     margin-bottom: 20px; 
     margin-right: 100px;
     margin-left: 50px;
+}
+
+#canvas_for_clusterization {
+    border-radius: 8px;
+    border: 1px solid #000;
+    background: #ffffff;
+}
+
+label {
+    color:#fff;
 }
 
 .range_info_div {
@@ -36,9 +159,5 @@ input[type="range"] {
 
 .count_of_points_text {
     margin-bottom: 20px;
-}
-
-#canvas_for_clusterization {
-    border: 1px solid #000;
-    background: #d9e0d9;
+    color: aliceblue;
 }

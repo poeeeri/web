@@ -1,0 +1,63 @@
+
+
+
+body {
+    font-family: Arial;
+    margin: 0;
+    padding: 20px;
+    background-image: /*url(comarubeer.png),  */ 
+    linear-gradient(to right, rgb(195, 222, 205), rgb(96, 126, 107));
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.379);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    height: 60px;
+}
+
+.table {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 100%;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    position: relative;
+    margin-left: 15px;
+}
+
+.link {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.link:hover {
+    background-color:rgb(39, 85, 64);
+    color: white;
+}
+
+.site-logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: rgb(39, 85, 64);
+    text-decoration: none;
+}
