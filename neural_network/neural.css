@@ -2,7 +2,7 @@ body {
     font-family: Arial;
     margin: 0;
     padding: 20px;
-    background-image: url(komarustay.png),   
+    background-image: url(komarukaifopacity.png),
     linear-gradient(to right, rgb(96, 126, 107), rgb(29, 76, 50));
 }
 
@@ -12,7 +12,7 @@ h1 {
     text-align: center;
     padding: 12px 20px;
     border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.178);
+    background-color: rgba(38, 63, 49, 0.336);
     font-size: 1.1em;   
     border: 1px solid #fff;
 }
@@ -27,7 +27,7 @@ transition: all 0.3s;
 }
 
 button {
-    background-color: rgba(255, 255, 255, 0.043);
+    background-color: rgba(38, 63, 49, 0.336);
     border: 1px solid #fff;
     border-radius: 5px;
     color: #fff;
@@ -135,7 +135,7 @@ a:active {
     padding: 12px 20px;
     color: aliceblue;
     border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.178);
+    background-color: rgba(35, 57, 45, 0.747);
     font-size: 1.1em;
     text-align: center;
     width: 100%;

@@ -1,9 +1,9 @@
 body {
     font-family: Arial;
     margin: 0;
-    padding: 10px;
+    padding: 20px;
     background-image: url(komarustay.png),   
-    linear-gradient(to right, rgb(50, 72, 58), rgb(29, 76, 50));
+    linear-gradient(to right, rgb(96, 126, 107), rgb(29, 76, 50));
 }
 
 button,
@@ -132,9 +132,18 @@ input[type="range"] {
 
 
 .canvas_clasterization {
+    background-color: #2c544b88;
+    border-radius: 8px;
+    padding: 20px;
     margin-bottom: 20px; 
     margin-right: 100px;
     margin-left: 50px;
+}
+
+#canvas_for_clusterization {
+    border-radius: 8px;
+    border: 1px solid #000;
+    background: #ffffff;
 }
 
 label {
@@ -151,10 +160,4 @@ label {
 .count_of_points_text {
     margin-bottom: 20px;
     color: aliceblue;
-}
-
-#canvas_for_clusterization {
-    border: 2px solid #022913;
-    background: #9ab49a;
-    margin: 20px;
 }
