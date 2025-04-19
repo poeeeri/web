@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>neural network</title>
+    <link rel="stylesheet"  href="neural.css"/>
+</head> 
+<body>
+    <h1>Нейросеть</h1>
+    <div class="container">
+        <div class="canvas_nn">
+            <canvas id="canvas_for_nn" width="300" height="300"></canvas>
+        </div>
+        <div class="buttons">
+            <output id="output">Это цифра...</output>
+            <button class="button1" id="clear_canvas" type="button">Очистить холст</button>
+            <button class="button1" onclick="main()" type="button">Распознать</button>
+        </div>
+    </div>
+    <a href="javascript:history.back()">Назад</a> 
+    <script src="neural_nw.js"></script>
+</body>
