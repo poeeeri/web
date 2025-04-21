@@ -136,6 +136,8 @@ class Network{
     }
     
 }
+
+
 function convertImage(canvas) {
     const size = 28;
     const tempCanvas = document.createElement('canvas');
@@ -184,15 +186,15 @@ canvas.addEventListener("mousemove", function(e) {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    const steps = 10;
+    const steps = 5;
     for (let i = 0; i < steps; i++) {
         const t = i / steps;
         const interX = lastX + (x - lastX) * t;
         const interY = lastY + (y - lastY) * t;
 
-        const radius = 20;
+        const radius = 15;
         const gradient = ctx.createRadialGradient(interX, interY, 0, interX, interY, radius);
-        gradient.addColorStop(0, "rgb(0, 0, 0)");
+        gradient.addColorStop(0, "rgba(0, 0, 0, 0.82)");
         gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
 
         ctx.fillStyle = gradient;

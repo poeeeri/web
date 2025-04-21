@@ -2,7 +2,7 @@ function getRandomInt(min, max) {
     min = Math.ceil(min); // округляем до ближайшего большего целого
     max = Math.floor(max); // округляем до ближайшего меньшего целого
     return Math.floor(Math.random() * (max - min + 1)) + min; 
-  }
+}
 
 class Point {
     number;

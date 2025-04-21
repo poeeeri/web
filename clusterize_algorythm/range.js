@@ -16,4 +16,13 @@ document.addEventListener("DOMContentLoaded", function() {
     slider.addEventListener("input", function() {
         output.textContent = this.value;
     });
+
+    const slider1 = document.getElementById("bandwidth");
+    const output1 = document.getElementById("rad_value");
+
+    output.textContent = slider.value;
+    
+    slider1.addEventListener("input", function() {
+        output1.textContent = this.value;
+    });
 });

@@ -4,65 +4,79 @@ body {
     padding: 20px;
     background-image: url(komarukaifopacity.png),
     linear-gradient(to right, rgb(96, 126, 107), rgb(29, 76, 50));
+    background-blend-mode: overlay;
 }
 
 h1 {
-    color: aliceblue;
-    margin-bottom: 80px;
-    text-align: center;
-    padding: 12px 20px;
-    border-radius: 8px;
-    background-color: rgba(38, 63, 49, 0.336);
-    font-size: 1.1em;   
     border: 1px solid #fff;
+    border-radius: 12px;
+    color:#fff;
+    background-color: #02291377;
+    margin: 50px auto 20px;
+    width: auto;
+    max-width: 500px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.089);
 }
 
-
-button,
-button::after {
--webkit-transition: all 0.3s;
--moz-transition: all 0.3s;
--o-transition: all 0.3s;
-transition: all 0.3s;
-}
 
 button {
-    background-color: rgba(38, 63, 49, 0.336);
-    border: 1px solid #fff;
-    border-radius: 5px;
-    color: #fff;
-    display: block;
-    font-size: 1.5em;
-    font-weight: bold;
-    margin: 10px auto;
-    padding: 10px 10px;
-    position: relative;
+    background-color: rgba(154, 180, 154, 0.4);
+    border: 1px;
+    border-radius: 8px;
+    color:#fff;
+    display: inline-block;
     text-transform: uppercase;
+    transition: all 0.3s;
+    font-size: 1em;
+    font-weight: 500;
+    padding: 12px 24px;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    overflow: hidden;
+    margin: 8px;
+    border: 1px solid #ffffff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.089);
 }
-button::before,
-button::after {
-    background: #fff;
+
+button::before {
     content: '';
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(136, 161, 146, 0.6), rgba(62, 92, 79, 0.8));
     z-index: -1;
-    border-radius: 5px;
+    transition: all 0.3s ease;
+    opacity: 0;
 }
+
 button:hover {
     color: #172b1d;
+    background-color: #8ba79d;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.089);
 }
-.button1::after {
-    height: 0;
-    left: 0;
-    top: 0;
-    width: 100%;
+
+button:hover::before {
+    opacity: 1;
 }
-.button1:hover:after {
-height: 100%;
+
+button::after {
+    background: #ffffff18;
+    content: '';
+    position: absolute;
 }
 
 
 .container {
+    display: flex;
     gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .canvas_nn {
@@ -72,45 +86,45 @@ height: 100%;
     margin-bottom: 20px; 
     margin-right: 100px;
     margin-left: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.089);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 #canvas_for_nn {
     border-radius: 8px;
     border: 1px solid #000;
     background: #ffffff;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.089);
 }
+
 
 a {
-    flex: 1;
-    line-height: 3;
+    display: inline-block;
     text-align: center;
     background-size: 20px;
-    padding: 10px;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    text-decoration: none;
     border-radius: 10px;
+    color:#ffffff;
     outline-color: transparent;
-}
-
-a:link,
-a:visited,
-a:focus {
-    background-color: rgba(6, 49, 35, 0.342);
-    color: black;
-    transition: all 0.3s;
+    background-color: rgba(6, 49, 35, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0.089);
 }
 
 a:hover {
-    background-color: #4b695f;
     background: #fff;
-    content: '';
-    z-index: -1;
+    color: #172b1d;
     border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 a:active {
     background-color: rgb(2, 26, 22);
     color: white;
 }
-
 
 
 .container {
