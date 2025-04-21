@@ -5,6 +5,7 @@ document.getElementById("start_clasterization").addEventListener("click", functi
     }
     const k = parseInt(document.getElementById("k_value").textContent);
     setupKMeans(k);
+    info.textContent = `Найдено кластеров: ${assignments.length}`;
 });
 
 function setupKMeans(k) {
@@ -122,7 +123,4 @@ function runRec(){
     const assignments = makeAssignments();
     const moved = moveMeans(assignments);
     drawClusters(assignments);
-    if (moved){
-        setTimeout(run, 500);
-    }
 }

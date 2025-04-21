@@ -7,10 +7,17 @@
     <link rel="stylesheet"  href="clastering.css"/>
 </head>
 <body>
+    <header>
+        <button class="button1" id="start_clasterization" type="button">Кластеризовать с k-means</button>
+        <button class="button1" id="start_clasterization_with_dbscan" type="button">Кластеризовать с DBSCAN</button>
+        <button class="button1" id="start_clasterization_with_meanshift" type="button">Кластеризовать с meanshift</button>
+        <button class="button1" id="clear_canvas" type="button">Очистить холст</button>
+    </header>
     <div class="text_h1"><h1>Отметьте точки на холсте</h1></div>
     <div class="container">
         <div class="canvas_clasterization">
             <canvas id="canvas_for_clusterization" width="400" height="400"></canvas>
+            <div id="info"></div>
         </div>
         <div>
             <p class="number_of_classes">Выберите количество кластеров для K-средних: </p>
@@ -31,14 +38,20 @@
                 </div>
                 <p><output id="eps_value"></output></p>
             </div>
+            <p class="number_of_classes">Радиус для MEANSHIFT</p>
+            <div class="range_rad_info_div">
+                <div class="range">
+                        <label for="eps_range">1</label>
+                        <input type="range" id="bandwidth" value="50" min="1" max="1000">
+                        <label for="eps_range">1000</label>
+                </div>
+                <p><output id="rad_value"></output></p>
+            </div>
             <div class="count_of_points_text">Количество точек: 
                 <span id="count_of_points">0</span>
             </div>
             <div class="buttons_for_parameters">
-                <button class="button1" id="start_clasterization" type="button">Кластеризовать с k-means</button>
-                <button class="button1" id="start_clasterization_with_dbscan" type="button">Кластеризовать с DBSCAN</button>
-                <button class="button1" id="start_clasterization_with_meanshift" type="button">Кластеризовать с meanshift</button>
-                <button class="button1" id="clear_canvas" type="button">Очистить холст</button>
+
             </div>
         </div>
     </div>

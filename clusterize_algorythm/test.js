@@ -26,6 +26,7 @@ function meanShift(data, bandwidth = 50, maxIter = 100) {
         let point = shiftPoints[i];
         let iter = 0;
         let shift = Infinity;
+
         while (shift > 1 && iter < maxIter) {
             const oldPos = {...point};
             const neighbors = findNeighbor(shiftPoints, point, bandwidth);

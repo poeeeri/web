@@ -55,19 +55,23 @@ function dbscan(dist, data, minPts, eps) {
 }
 
 
-function setupDBSCAN(eps){
+function setupDBSCAN(eps) {
     const minPts = 3;
     const clusters = dbscan(euclidean, points, minPts, eps);
     const colors = ["red", "blue", "green", "purple", "orange", "white", "magenta"];
-
+    const uniqueClusters = new Set();
+    
     for (let i = 0; i < points.length; i++) {
         const cluster = clusters[i].cluster;
         if (cluster === -1) {
             points[i].color = "gray";
-        }
-        else {
+        } else {
             points[i].color = colors[cluster % colors.length];
+            uniqueClusters.add(cluster);
         }
     }
     updateCanvas();
+    let count = points.filter(p => p.color === "gray").length;
+    const clusterCount = uniqueClusters.size;
+    info.textContent = `найдено кластеров: ${clusterCount} (шум: ${count})`;
 }
