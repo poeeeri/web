@@ -360,7 +360,7 @@ algorithm.addEventListener('click', async () => {
     // mutation_offsprings = mutation(matrix_length, mixed_population);
     // console.log('мутации: ', mutation_offsprings);
 
-    for (let i = 0; i < points.length*15; i++){
+    for (let i = 0; i < points.length*30; i++){
         population = run_gen_algorithm(matrix_length, population);
         // console.log('итог: ', population);
         console.log('лучшая особь: ', population[0]);
@@ -371,7 +371,7 @@ algorithm.addEventListener('click', async () => {
         drawRouteWithPoints(best_rout, points);
         console.log(`Шаг ${i + 1}: длина маршрута — ${population[0].length_route.toFixed(2)}`);
         route_len.innerHTML = "Длина маршрута: " + population[0].length_route.toFixed(2);
-        step_algorythm.innerHTML = "Итерация: " + (i+1) + " из " + points.length*15;
+        step_algorythm.innerHTML = "Итерация: " + (i+1) + " из " + points.length*30;
 
 
 
