@@ -159,7 +159,7 @@ class Individual {
 
 function create_population(matrix_length){
 
-    const count = matrix_length.length*2; //количество особей в начальной популяции
+    const count = matrix_length.length*4; //количество особей в начальной популяции
     const population = new Set();
     const result = []; 
 
@@ -261,6 +261,7 @@ function crossover(matrix_length, population){
     }
     
     calculating_length_and_fitness_in_population(matrix_length, offsprings);
+    sort_fitness(population);
 
     return offsprings;
    
@@ -270,7 +271,7 @@ function crossover(matrix_length, population){
 
 function mutation(matrix_length, offsprings) {
     let mutation_offsprings = offsprings.map(ind => new Individual([...ind.route]));
-    let percentage_of_mutations = 0.1;
+    let percentage_of_mutations = 0.3;
 
     for (let i = 0; i < mutation_offsprings.length; i++) {
 
@@ -359,7 +360,7 @@ algorithm.addEventListener('click', async () => {
     // mutation_offsprings = mutation(matrix_length, mixed_population);
     // console.log('мутации: ', mutation_offsprings);
 
-    for (let i = 0; i < points.length*10; i++){
+    for (let i = 0; i < points.length*15; i++){
         population = run_gen_algorithm(matrix_length, population);
         // console.log('итог: ', population);
         console.log('лучшая особь: ', population[0]);
@@ -370,11 +371,11 @@ algorithm.addEventListener('click', async () => {
         drawRouteWithPoints(best_rout, points);
         console.log(`Шаг ${i + 1}: длина маршрута — ${population[0].length_route.toFixed(2)}`);
         route_len.innerHTML = "Длина маршрута: " + population[0].length_route.toFixed(2);
-        step_algorythm.innerHTML = "Итерация: " + (i+1) + " из " + points.length*10;
+        step_algorythm.innerHTML = "Итерация: " + (i+1) + " из " + points.length*15;
 
 
 
-        //задержка для отрисовки каждого маршрута 300мс
+        //задержка для отрисовки каждого маршрута 150мс
         await new Promise(resolve => setTimeout(resolve, 150));
 
     }
