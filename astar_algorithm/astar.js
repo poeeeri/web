@@ -82,11 +82,11 @@ canvas.addEventListener("click", function(event) {
     const cell = grid[y][x];
 
     if (cell === 2) {
-        grid[y][x] = 0;
+        grid[y][x] = 1;
         start = null;
         startSet = false;
     } else if (cell === 3) {
-        grid[y][x] = 0;
+        grid[y][x] = 1;
         end = null;
         endSet = false;
     }
