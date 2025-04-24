@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .russo-one-regular {
+    font-family: "Russo One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  
+  
+  
+  body {
+    font-family: 'Bitter', serif; /* Указываем правильное имя шрифта */
+    color: #fff;
+  }
+
+  /* a { text-decoration: none; } */
+
+  .scroll-to-information {
+    font-family: 'bitter-light';
+    font-size: 2vh;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 0.5rem 1rem;
+    background-color: #00090e00;  /* Изначальный прозрачный фон */
+    /* border: 0.5px solid #00DF82; */
+    color: #00df82;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background-color 0.3s ease; /* Плавное изменение фона */
+    /* transition: background-color 0.5s ease, transform 0.3s ease; */
+
+}
+
+
+
+.scroll-to-information:hover {
+    box-shadow: 0px 5px 20px; 
+    /*background-color: #00df82a1; /* Фон при наведении */
+    /*color: #00090e; /* Можно поменять цвет текста, если нужно */
+    /* box-shadow: 0 0 5px,0 0 25px; */
+}
+
+  
+  
+  .hero {
+    background-image: url('images/background.png');
+    background-position: bottom center; /* привязка фона к нижней стороне */
+    background-size: cover;            /* масштабировать, чтобы покрывало весь блок */
+    background-repeat: no-repeat;      /* не повторять изображение */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+
+
+  }
+
+  .scroll-to-content {
+    font-family: 'bitter-light';
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #00df8200;
+    color: #104324;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: background-color 0.5s ease, transform 0.3s ease;
+  }
+  
+  .scroll-to-content:hover {
+    transform: translate(-50%, -20px);
+  }
+
+
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    padding: 10px; /*одинаковый внутренний отступ*/
+    line-height: 1.5;
+    /* font-size: 3em; */
+    font-size: clamp(1rem, 2.5vw, 3.5rem);
+    /* background-color: #00DF82; */
+    /* color: white;*/ 
+    font-family: 'Bitter';
+    font-weight: 700;
+    border: none;
+    /* border-radius: 10px;  */
+    width: 100%; /*на всю ширину колонки*/
+    aspect-ratio: 5 / 3; /*соотношение сторон — одинаковая "форма"*/
+    box-sizing: border-box; /*чтобы padding не влиял на размер*/
+    /* transition: background-color 0.3s ease; */
+    /* cursor: pointer; */
+    /* display: inline-block; /*padding: 15px 30px; */
+    /* font-size: 18px; font-weight: bold; */
+    color: #00DF82; /*text-transform: uppercase;*/
+    text-decoration: none;
+    background-color: transparent;
+    border: 2px solid #00DF82;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 223, 130, 0.5), 0 0 20px
+    rgba(0, 223, 130, 0.3), 0 0 30px rgba(0, 223, 130, 0.2);
+    transition: all 0.4s ease;
+    position: relative; overflow: hidden;
+  }
+  
+
+.btn:hover {
+    background-color: #00DF82; /* Цвет кнопки при наведении */
+    color: #00090E;
+}
+
+  
+  
+  .content {
+    min-height: 100vh; 
+    background-color: #00090E;
+    padding: 2rem;
+  }
+  
+  .information {
+    /* font-size: 20vh; */
+    background-color: #00090E; /* Фон для секции, чтобы она была видимой */
+    color: #F1F7F7; /* Цвет текста */
+    padding: 7rem; /* Отступы */
+    max-height: 100vh; /* Минимальная высота, чтобы секция занимала весь экран */
+    text-align: center; /* Выравнивание текста по центру */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* align-items: flex-start; */
+    flex-direction: column; /* Центрируем текст по вертикали и горизонтали */
+    line-height: 1.5;
+}
+
+.information span {
+    color: #00DF82;
+    font-family: 'Russo One', sans-serif;
+    font-size: 7vh;
+    /* padding: 5vh; */
+    display: block;
+    width: 100%;
+    text-align: center;
+    /* Выравнивание текста по центру */
+
+    /* padding-bottom: 20vh; */
+    /*margin-bottom: 5rem; /* Отступ от заголовка до текста */
+}
+
+.information p {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-family: 'bitter-light';
+    font-size: 3vh; /* Размер шрифта для параграфа */
+    margin-top: 1rem; /* Отступ от заголовка */
+    margin-top: 3vh;
+    margin-bottom: 3vh; 
+    /*text-align: left; /* Выравнивание текста по центру */
+
+}
+
+.information ul {
+    /* display: block;
+    width: 100%; */
+    text-align: center;
+    font-family: 'bitter-light';
+    font-size: 3vh; /* Размер шрифта для параграфа */
+    /*text-align: left; /* Выравнивание текста по центру */
+
+    /*margin-top: 1rem; /* Отступ от заголовка */
+    /* margin-top: 1vh;
+    margin-bottom: 5vh;
+} */
+}
+
+.information li {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-family: 'bitter-light';
+    font-size: 3vh; /* Размер шрифта для параграфа */
+    /*text-align: left;*/ 
+}
+
+/* #github {
+    align-self: flex-start;
+    font-family: 'bitter-light';
+    color: #00DF82;
+    font-size: 2vh;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: auto; /* важно — не растягиваем и не ограничиваем */
+    /* flex-shrink: 0; /* не даём сжиматься */
+    /* margin-left: 0;
+  } */
+  
+
+  /* #icon img {
+    width: 4vh; /* маленький размер иконки */
+    /* height: auto;
+    align-items: center; */
+
+  /* } */ 
+  

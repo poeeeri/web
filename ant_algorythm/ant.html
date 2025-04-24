@@ -1,1 +1,33 @@
 <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Муравьиный алгоритм</title>
+    <link rel="stylesheet"  href="ant.css"/>
+    <script src="ant.js" defer></script>
+</head>
+<body>
+    <div><h1>Муравьиный алгоритм для решения задачи о коммивояжёре</h1></div>
+    <canvas id="myCanvas" width="400" height="400"></canvas>
+    <h3><span id="count_city"></span></h3>
+    <span>Выберите количество, для размещения городов случайным образом</span><br><br>
+    
+    <div>
+        <span>3</span>
+        <input type="range" min="3" max="25" value="3" id="citySlider">
+        <span>25</span>
+        <span id="countOnSlider"></span>
+        <br>
+        <button id="generation_city">Сгенерировать</button>
+    </div>
+
+    <button id="clear">Очистить</button>
+    <br>
+    <button id="algorithm">Запустить муравьиный алгоритм</button>
+    <br>
+    <span id="step_algorythm"></span>
+    <span id="length"></span>
+    
+</body>
+</html>
