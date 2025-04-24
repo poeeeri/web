@@ -8,26 +8,32 @@
     <script src="gen.js" defer></script>
 </head>
 <body>
-    <div><h1>Генетический алгоритм решения задачи о коммивояжёре</h1></div>
-    <canvas id="myCanvas" width="400" height="400"></canvas>
-    <h3><span id="count_city"></span></h3>
-    <span>Выберите количество, для размещения городов случайным образом</span><br><br>
-    
-    <div>
-        <span>3</span>
-        <input type="range" min="3" max="25" value="3" id="citySlider">
-        <span>25</span>
-        <span id="countOnSlider"></span>
-        <br>
-        <button id="generation_city">Сгенерировать</button>
+    <header>
+        <div class="buttons">
+            <button id="clear">Очистить</button>
+            <button id="algorithm">Запустить генетический алгоритм</button>
+            <button id="generation_city">Сгенерировать точки</button>
+            <span id="step_algorythm"></span>
+            <span id="length"></span>
+        </div>
+    </header>
+    <div class="container">
+        <div>
+            <div><h1>Генетический алгоритм решения задачи о коммивояжёре</h1></div>
+            <div class="canvas_genetic">
+                <canvas id="myCanvas" width="400" height="400"></canvas>
+            </div>
+                <h3><span id="count_city"></span></h3>
+        </div>
+        <div class="range">
+            <div class="range_info_div">
+                <label>3</label>
+                <input type="range" min="3" max="100" value="3" id="citySlider">
+                <label>100</label>
+            </div>
+            <label id="countOnSlider"></label>
+        </div>
     </div>
-
-    <button id="clear">Очистить</button>
-    <br>
-    <button id="algorithm">Запустить генетический алгоритм</button>
-    <br>
-    <span id="step_algorythm"></span>
-    <span id="length"></span>
-    
+    <a href="javascript:history.back()">Назад</a> 
 </body>
 </html>

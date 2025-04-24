@@ -1,12 +1,13 @@
-
-
-
 body {
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background-image: /*url(comarubeer.png),  */ 
+    padding-top: 80px;
+    background-image:
     linear-gradient(to right, rgb(195, 222, 205), rgb(96, 126, 107));
+    backdrop-filter: blur(5px);
+    background-blend-mode: overlay;
+    min-height: 100vh;
 }
 
 header {
@@ -14,10 +15,13 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background-color: rgba(255, 255, 255, 0.379);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.582);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     height: 60px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    
 }
 
 .table {
@@ -26,18 +30,21 @@ header {
     align-items: center;
     padding: 0 20px;
     height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-ul {
+
+.menu {
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
+    gap: 10px;
 }
 
-li {
+.menu li {
     position: relative;
-    margin-left: 15px;
 }
 
 .link {
@@ -48,16 +55,99 @@ li {
     font-weight: 500;
     border-radius: 4px;
     transition: all 0.3s ease;
+    text-align: center;
 }
 
 .link:hover {
-    background-color:rgb(39, 85, 64);
+    background-color: rgb(39, 85, 64);
     color: white;
+    transform: translateY(-2px);
 }
 
-.site-logo {
+.site_logo {
     font-weight: 700;
     font-size: 1.5rem;
     color: rgb(39, 85, 64);
     text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.site_logo:hover {
+    opacity: 0.5;
+}
+
+.icon {
+    transition: opacity 0.3s;
+}
+
+.icon:hover {
+    opacity: 0.3;
+}
+
+.menu_toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.text_block {
+    font-size: 24px;
+    font-weight: 500;
+    font-weight: normal;
+    cursor: pointer;
+    text-shadow: 0 0 15px #254224;
+    color: transparent;
+    transition: all 0.5s;
+    text-align: center;
+}
+
+.text_block:hover {
+    text-shadow: 0 0 0px #254224;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    background-size: 100%;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px;
+    }
+    
+    .menu {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.938);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 15px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        transform: translateY(-150%);
+        transition: all 0.5s ease;
+    }
+    
+    .menu.active {
+        transform: translateY(0);
+    }
+    
+    .menu li {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .link {
+        padding: 12px 20px;
+        margin: 0 20px;
+    }
+    
+    .menu_toggle {
+        display: block;
+    }
+    
+    .navigation .menu.active {
+        display: flex;
+    }
 }
