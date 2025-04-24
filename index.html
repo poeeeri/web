@@ -9,49 +9,15 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="site_header">
-      <div class="table">
-        <a href="/" class="site_logo">Алгоритмы</a>
-        <nav class="navigation">
-          <button class="menu_toggle" aria-label="Меню">
-            <img src="komaru_drawings_008.webp" class="icon" style="width: 40px; height: 40px;">
-          </button>
-          <ul class="menu">
-            <li>
-              <a href="neural_network/neural.html" class="link">Нейросеть</a>
-            </li>
-            <li>
-              <a href="clusterize_algorythm/clastering.html" class="link">Кластеризация</a>
-            </li>
-            <li>
-              <a href="#algorithm_name_A_star" class="link">A star</a>
-            </li>
-            <li>
-              <a href="#algorithm_name_ant_algorithm" class="link">Муравьиный алгоритм</a>
-            </li>
-            <li>
-              <a href="genetic_algorythm/gen.html" class="link">Генетический алгоритм</a>
-            </li>
-            <li>
-              <a href="#algorithm_name_decision_tree" class="link">Дерево решений</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      </header>
-      <div role="main" class="container">
-        <div class="text_block">
-          <br>
-          <h1>Визуализация алгоритмов</h1>
-          <br>
-          <h3 class="text">Этот проект был создан командой студентов HITs:</h3>
-          <p class="authors">Филипповой Полиной,</p>
-          <p class="authors">Доржиевой Пурбо-Суруной,</p>
-          <p class="authors">Новиковой Ириной.</p>
+    <header class="site-header">
+        <div class="wrapper site-header__wrapper">
+            <a href="#algorithm_name_nn">Нейросеть</a>
+            <a href="clusterize_algorythm/clastering.html">Кластеризация</a>
+            <a href="astar_algorithm/astar_maze.html">A star</a>
+            <a href="#algorithm_name_ant_algorithm">Муравьиный алгоритм</a>
+            <a href="#algorithm_name_genetic_algorithm">Генетический алгоритм</a>
+            <a href="#algorithm_name_decision_tree" class="claster">Дерево решений</a>
         </div>
-        <canvas id="noise" class="noise"></canvas>
-        <div class="vignette"></div>
-      </div>
-  <script src="index.js"></script>
+      </header>
 </body>
 </html>
