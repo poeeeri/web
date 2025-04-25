@@ -19,7 +19,7 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 var count_citys = 0;
 var width = 600;
-var height = 500;
+var height = 400;
 var count = document.getElementById("count_city");
 var pi = Math.PI;
 count.innerHTML = "Количество городов на карте: " + count_citys;
@@ -56,29 +56,23 @@ clear.addEventListener('click', () => {
     route_len.innerHTML = '';
     step_algorythm.innerHTML = '';
 
+
+})
+
+
+
+
+// ОТОБРАЖЕНИЯ КОЛИЧЕСТВА ТОЧЕК НА ПОЛЗУНКЕ
+var slider = document.getElementById("citySlider");
+var count_on_slider = document.getElementById("countOnSlider");
+count_on_slider.innerHTML = slider.valueAsNumber;
+
+
+
+slider.addEventListener('input', () => {
+    console.log(slider.valueAsNumber); // текущее количество городов
+    count_on_slider.innerHTML = slider.valueAsNumber;
 });
-
-const slider = document.getElementById("citySlider");
-const countOnSlider = document.getElementById("countOnSlider");
-
-function updateSliderValue() {
-  const value = slider.valueAsNumber;
-  countOnSlider.textContent = value;
-
-  // Расчет позиции числа над ползунком
-  const sliderWidth = slider.offsetWidth;
-  const min = parseInt(slider.min);
-  const max = parseInt(slider.max);
-
-  const percent = (value - min) / (max - min);
-  const px = percent * sliderWidth;
-
-  countOnSlider.style.left = `${px}px`;
-}
-
-slider.addEventListener("input", updateSliderValue); // где находится ползунок (от 0 до 1)
-window.addEventListener("load", updateSliderValue); // обновить при загрузке
-
 
 
 // СЛУЧАЙНАЯ ГЕНЕРАЦИЯ ГОРОДОВ
@@ -187,7 +181,9 @@ function create_population(matrix_length){
             const j = Math.floor(Math.random() * (i+1));
             [route[i], route[j]] = [route[j], route[i]];
         }
-        const key = route.join(','); //преобразуем массив в строку, чтобы сранивать и исключать появление одинаковых маршрутов
+
+        const key = route.join(','); //преобразуем массив в строку чтобы исключать появление одинаковых маршрутов
+
         if (!population.has(key)){
             population.add(key);
             result.push(new Individual(route));
@@ -238,6 +234,7 @@ function crossover(matrix_length, population){
     }
 
     let offsprings = [];
+
     //скрещивание рядом стоящих пар популяции(один из вариантов выбора родителей)
     for (let i = 0; i < mixed_population.length - 1; i+=2){
 
