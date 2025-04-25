@@ -1,6 +1,6 @@
 function getRandomInt(min, max) {
-    min = Math.ceil(min); // округляем до ближайшего большего целого
-    max = Math.floor(max); // округляем до ближайшего меньшего целого
+    min = Math.ceil(min); 
+    max = Math.floor(max); 
     return Math.floor(Math.random() * (max - min + 1)) + min; 
   }
 
@@ -33,7 +33,7 @@ var points = [];
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 var count_citys = 0;
-var width = 400;
+var width = 600;
 var height = 400;
 var count = document.getElementById("count_city");
 var pi = Math.PI;
@@ -47,12 +47,11 @@ canvas.onmousedown = function(event) {
     points.push(point);
     console.log('массив точек:', points);
     console.log('Клик на canvas произошел в точке:', point.x, point.y);
-    // ctx.fillRect(x-5,y-5,10,10);
     ctx.beginPath();
-    ctx.lineWidth = 1;
-    ctx.strokeStyle = "#401313";
-    ctx.fillStyle =  "#401313";
-    ctx.arc(point.x-2, point.y-2, 10, 0, 2*pi, false);
+    ctx.lineWidth = 2.5;
+    ctx.strokeStyle = "#00DF82";
+    ctx.fillStyle =  "#00090E";
+    ctx.arc(point.x, point.y, 15, 0, 2*pi, false);
     ctx.stroke();
     ctx.fill();
     count_citys++;
@@ -69,6 +68,8 @@ clear.addEventListener('click', () => {
     points = [];
     count_citys = 0;
     count.innerHTML = "Количество городов на карте: " + count_citys;
+    route_len.innerHTML = '';
+    step_algorythm.innerHTML = '';
 
 })
 
@@ -85,6 +86,9 @@ slider.addEventListener('input', () => {
 // СЛУЧАЙНАЯ ГЕНЕРАЦИЯ ГОРОДОВ
 var generationt_citys = document.getElementById("generation_city");
 generationt_citys.addEventListener('click', () => {
+
+    route_len.innerHTML = '';
+    step_algorythm.innerHTML = '';
 
     ctx.clearRect(0,0, width, height);
     count_citys = 0;
@@ -107,27 +111,28 @@ generationt_citys.addEventListener('click', () => {
         count.innerHTML = "Количество городов на карте: " + count_citys;
 
         ctx.beginPath();
-        ctx.lineWidth = 1;
-        ctx.strokeStyle = "#401313";
-        ctx.fillStyle =  "#401313";
-        ctx.arc(x_rand, y_rand, 10, 0, 2*pi, false);
+        ctx.lineWidth = 2.5;
+        ctx.strokeStyle = "#00DF82";
+        ctx.fillStyle =  "#00090E";
+        ctx.arc(x_rand, y_rand, 15, 0, 2*pi, false);
         ctx.stroke();
         ctx.fill();
         ctx.closePath();
     }
 
     console.log('массив точек:', points);
+
+    
 });
 
-
 function drawPoints(points){
-    ctx.clearRect(0, 0, width, height);
+    // ctx.clearRect(0, 0, width, height);
     for (let i = 0; i < points.length; i++) {
         ctx.beginPath();
-        ctx.lineWidth = 1;
-        ctx.strokeStyle = "#401313";
-        ctx.fillStyle = "#401313";
-        ctx.arc(points[i].x-2, points[i].y-2, 10, 0, 2 * pi, false);
+        ctx.lineWidth = 2.5;
+        ctx.strokeStyle = "#00DF82";
+        ctx.fillStyle =  "#00090E";
+        ctx.arc(points[i].x, points[i].y, 15, 0, 2 * pi, false);
         ctx.stroke();
         ctx.fill();
         ctx.closePath();
@@ -138,9 +143,9 @@ function drawPoints(points){
 function drawRouteWithPoints(route, points){
 
     ctx.clearRect(0, 0, width, height);
-    drawPoints(points);
+    // drawPoints(points);
 
-    ctx.strokeStyle = "#56735c59";
+    ctx.strokeStyle = "#F1F7F7";
     ctx.lineWidth = 2;
 
     ctx.beginPath();
@@ -151,7 +156,7 @@ function drawRouteWithPoints(route, points){
         ctx.lineTo(point.x, point.y);
     }
     ctx.stroke();
-
+    drawPoints(points);
 }
 
 //АЛГОРИТМ
@@ -221,6 +226,7 @@ function choose_next_city(probability) {
             break;
         }
     }
+
     return next_city;
 }
 
@@ -234,20 +240,14 @@ function trip_one_ant(matrix_inf, start_city) {
         let probability = find_transition_probability(matrix_inf, start_city, visited);
         let next_city = choose_next_city(probability);
 
-        // если что-то пошло не так
-        if (next_city === undefined) {
-            console.warn("Не удалось выбрать следующий город. Муравей остановлен досрочно.");
-            console.log("visited:", visited);
-            console.log("probabilities:", find_transition_probability(matrix_inf, start_city, visited));
-            break;
-        }
+        
 
         visited.push(next_city);
         ant.route.push(next_city);
         start_city = next_city;
     }
 
-    ant.route.push(ant.route[0]); // возвращаемся в начальный город
+    ant.route.push(ant.route[0]);
     return ant;
 }
 
@@ -358,7 +358,18 @@ algorithm.addEventListener('click', async () => {
         
         route_len.innerHTML = "Длина маршрута: " + best_len.toFixed(2);
         step_algorythm.innerHTML = "Итерация: " + (i+1) + " из " + points.length*20;
+
+
+        //задержка для отрисовки каждого маршрута 150мс
+        await new Promise(resolve => setTimeout(resolve, 100));
     }
     
 
+});
+
+
+const nav = document.getElementById('nav');
+const hiddenNav = document.getElementById('hiddenNav');
+nav.addEventListener('click', () => {
+    hiddenNav.classList.toggle('active');
 });
