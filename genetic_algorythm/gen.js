@@ -18,12 +18,14 @@ var points = [];
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 var count_citys = 0;
-var width = 400;
-var height = 400;
+var width = 600;
+var height = 500;
 var count = document.getElementById("count_city");
 var pi = Math.PI;
 count.innerHTML = "Количество городов на карте: " + count_citys;
 canvas.onmousedown = function(event) {
+    route_len.innerHTML = '';
+    step_algorythm.innerHTML = '';
     drawPoints(points);
     const point = new Point();
     point.x = event.offsetX;
@@ -34,10 +36,10 @@ canvas.onmousedown = function(event) {
     console.log('Клик на canvas произошел в точке:', point.x, point.y);
     // ctx.fillRect(x-5,y-5,10,10);
     ctx.beginPath();
-    ctx.lineWidth = 1;
-    ctx.strokeStyle = "#e6a8d7";
-    ctx.fillStyle =  "#e6a8d7";
-    ctx.arc(point.x-2, point.y-2, 10, 0, 2*pi, false);
+    ctx.lineWidth = 2.5;
+    ctx.strokeStyle = "#00DF82";
+    ctx.fillStyle =  "#00090E";
+    ctx.arc(point.x, point.y, 15, 0, 2*pi, false);
     ctx.stroke();
     ctx.fill();
     count_citys++;
@@ -54,6 +56,8 @@ clear.addEventListener('click', () => {
     points = [];
     count_citys = 0;
     count.innerHTML = "Количество городов на карте: " + count_citys;
+    route_len.innerHTML = '';
+    step_algorythm.innerHTML = '';
 
 })
 
@@ -61,14 +65,35 @@ clear.addEventListener('click', () => {
 
 
 // ОТОБРАЖЕНИЯ КОЛИЧЕСТВА ТОЧЕК НА ПОЛЗУНКЕ
-var slider = document.getElementById("citySlider");
-var count_on_slider = document.getElementById("countOnSlider");
-count_on_slider.innerHTML = slider.valueAsNumber;
+// var slider = document.getElementById("citySlider");
+// var count_on_slider = document.getElementById("countOnSlider");
+// count_on_slider.innerHTML = slider.valueAsNumber;
 
-slider.addEventListener('input', () => {
-    console.log(slider.valueAsNumber); // текущее количество городов
-    count_on_slider.innerHTML = slider.valueAsNumber;
-});
+// slider.addEventListener('input', () => {
+//     console.log(slider.valueAsNumber); // текущее количество городов
+//     count_on_slider.innerHTML = slider.valueAsNumber;
+// });
+
+const slider = document.getElementById("citySlider");
+const countOnSlider = document.getElementById("countOnSlider");
+
+function updateSliderValue() {
+  const value = slider.valueAsNumber;
+  countOnSlider.textContent = value;
+
+  // Расчет позиции числа над ползунком
+  const sliderWidth = slider.offsetWidth;
+  const min = parseInt(slider.min);
+  const max = parseInt(slider.max);
+
+  const percent = (value - min) / (max - min);
+  const px = percent * sliderWidth;
+
+  countOnSlider.style.left = `${px}px`;
+}
+
+slider.addEventListener("input", updateSliderValue); // где находится ползунок (от 0 до 1)
+window.addEventListener("load", updateSliderValue); // обновить при загрузке
 
 
 
@@ -97,10 +122,10 @@ generationt_citys.addEventListener('click', () => {
         count.innerHTML = "Количество городов на карте: " + count_citys;
 
         ctx.beginPath();
-        ctx.lineWidth = 1;
-        ctx.strokeStyle = "#e6a8d7";
-        ctx.fillStyle =  "#e6a8d7";
-        ctx.arc(x_rand, y_rand, 10, 0, 2*pi, false);
+        ctx.lineWidth = 2.5;
+        ctx.strokeStyle = "#00DF82";
+        ctx.fillStyle =  "#00090E";
+        ctx.arc(x_rand, y_rand, 15, 0, 2*pi, false);
         ctx.stroke();
         ctx.fill();
         ctx.closePath();
@@ -110,13 +135,13 @@ generationt_citys.addEventListener('click', () => {
 });
 
 function drawPoints(points){
-    ctx.clearRect(0, 0, width, height);
+    // ctx.clearRect(0, 0, width, height);
     for (let i = 0; i < points.length; i++) {
         ctx.beginPath();
-        ctx.lineWidth = 1;
-        ctx.strokeStyle = "#e6a8d7";
-        ctx.fillStyle = "#e6a8d7";
-        ctx.arc(points[i].x-2, points[i].y-2, 10, 0, 2 * pi, false);
+        ctx.lineWidth = 2.5;
+        ctx.strokeStyle = "#00DF82";
+        ctx.fillStyle = "#00090E";
+        ctx.arc(points[i].x, points[i].y, 15, 0, 2 * pi, false);
         ctx.stroke();
         ctx.fill();
         ctx.closePath();
@@ -127,9 +152,9 @@ function drawPoints(points){
 function drawRouteWithPoints(route, points){
 
     ctx.clearRect(0, 0, width, height);
-    drawPoints(points);
+    // drawPoints(points);
 
-    ctx.strokeStyle = "#7c8094";
+    ctx.strokeStyle = "#F1F7F7";
     ctx.lineWidth = 2;
 
     ctx.beginPath();
@@ -142,6 +167,7 @@ function drawRouteWithPoints(route, points){
 
     ctx.lineTo(points[0].x, points[0].y);
     ctx.stroke();
+    drawPoints(points);
 
 }
 
@@ -360,7 +386,7 @@ algorithm.addEventListener('click', async () => {
     // mutation_offsprings = mutation(matrix_length, mixed_population);
     // console.log('мутации: ', mutation_offsprings);
 
-    for (let i = 0; i < points.length*30; i++){
+    for (let i = 0; i < points.length*15; i++){
         population = run_gen_algorithm(matrix_length, population);
         // console.log('итог: ', population);
         console.log('лучшая особь: ', population[0]);
@@ -371,12 +397,12 @@ algorithm.addEventListener('click', async () => {
         drawRouteWithPoints(best_rout, points);
         console.log(`Шаг ${i + 1}: длина маршрута — ${population[0].length_route.toFixed(2)}`);
         route_len.innerHTML = "Длина маршрута: " + population[0].length_route.toFixed(2);
-        step_algorythm.innerHTML = "Итерация: " + (i+1) + " из " + points.length*30;
+        step_algorythm.innerHTML = "Итерация: " + (i+1) + " из " + points.length*15;
 
 
 
         //задержка для отрисовки каждого маршрута 150мс
-        await new Promise(resolve => setTimeout(resolve, 150));
+        await new Promise(resolve => setTimeout(resolve, 100));
 
     }
 
