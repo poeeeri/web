@@ -119,88 +119,6 @@ generationt_citys.addEventListener('click', () => {
     console.log('массив точек:', points);
 });
 
-// function drawPoints_without_clear(points){
-//     for (let i = 0; i < points.length; i++) {
-//         ctx.beginPath();
-//         ctx.lineWidth = 1;
-//         ctx.strokeStyle = "#401313";
-//         ctx.fillStyle = "#401313";
-//         ctx.arc(points[i].x-2, points[i].y-2, 10, 0, 2 * pi, false);
-//         ctx.stroke();
-//         ctx.fill();
-//         ctx.closePath();
-//     }
-// }
-
-// function drawPoints_with_clear(points){
-//     //ctx.clearRect(0, 0, width, height);
-//     for (let i = 0; i < points.length; i++) {
-//         ctx.beginPath();
-//         ctx.lineWidth = 1;
-//         ctx.strokeStyle = "#401313";
-//         ctx.fillStyle = "#401313";
-//         ctx.arc(points[i].x-2, points[i].y-2, 10, 0, 2 * pi, false);
-//         ctx.stroke();
-//         ctx.fill();
-//         ctx.closePath();
-//     }
-// }
-
-
-// function drawRouteWithPoints(route, points){
-
-//     //ctx.clearRect(0, 0, width, height);
-//     drawPoints_with_clear(points);
-
-//     ctx.strokeStyle = "#7c8094";
-//     ctx.lineWidth = 2;
-
-//     ctx.beginPath();
-//     ctx.moveTo(points[0].x, points[0].y);
-
-//     for (let i = 0; i < route.length; i++){
-//         const point = points[route[i]];
-//         ctx.lineTo(point.x, point.y);
-//     }
-
-//     ctx.lineTo(points[0].x, points[0].y);
-//     ctx.stroke();
-
-// }
-
-// function draw_all_routes(points){
-//     ctx.clearRect(0, 0, width, height);
-//     drawPoints_with_clear(points);
-
-//     ctx.strokeStyle = "#56735c59";
-//     ctx.lineWidth = 1;
-
-//     ctx.beginPath();
-//     for (let i = 0; i < points.length; i++){
-//         for (let j = i+1; j < points.length; j++){
-//             if (i != j){
-//                 ctx.moveTo(points[i].x, points[i].y);
-//                 ctx.lineTo(points[j].x, points[j].y);
-//                 //ctx.stroke();
-//             }
-//         }
-//     }
-//     // for (let k = 0; k < 10; k++){
-//     //     for (let i = 3; i < points.length; i++){
-//     //         for (let j = i+1; j < points.length; j++){
-//     //             if (i != j){
-//     //                 ctx.moveTo(points[i].x, points[i].y);
-//     //                 ctx.lineTo(points[j].x, points[j].y);
-//     //                 //ctx.stroke();
-//     //             }
-//     //         }
-//     //     }
-//     // }
-//     ctx.stroke();
-//     ctx.closePath();
-//     drawPoints_without_clear(points);
-
-// }
 
 function drawPoints(points){
     ctx.clearRect(0, 0, width, height);
@@ -232,8 +150,6 @@ function drawRouteWithPoints(route, points){
         const point = points[route[i]];
         ctx.lineTo(point.x, point.y);
     }
-
-    // ctx.lineTo(points[0].x, points[0].y);
     ctx.stroke();
 
 }
@@ -305,12 +221,6 @@ function choose_next_city(probability) {
             break;
         }
     }
-
-    // console.log('рандомное число:', random);
-    // console.log('потенциальные города:', nums);
-    // console.log('рулетка:', roulette);
-    // console.log('выбранный город:', next_city);
-
     return next_city;
 }
 
@@ -408,9 +318,7 @@ function run_ant_algorithm(matrix_inf){ //одна итерация
     let matrix_trips = trips_ants(matrix_inf); //создаем маршруты муравьев
     updating_pheromones(matrix_inf, matrix_trips); //обновляем феромоны
     sort_length(matrix_trips);
-    // console.log('маршруты: ', matrix_trips);
     drawRouteWithPoints(matrix_trips[0].route, points);
-    // console.log('маршрут на карте: ', matrix_trips[0].route);
 
 
 }
@@ -430,7 +338,6 @@ algorithm.addEventListener('click', async () => {
     
 
     for (let i = 0; i < points.length*20; i++){
-        // run_ant_algorithm(matrix_inf);
         
         let matrix_trips = trips_ants(matrix_inf); //создаем маршруты муравьев
         updating_pheromones(matrix_inf, matrix_trips); //обновляем феромоны
@@ -451,9 +358,6 @@ algorithm.addEventListener('click', async () => {
         
         route_len.innerHTML = "Длина маршрута: " + best_len.toFixed(2);
         step_algorythm.innerHTML = "Итерация: " + (i+1) + " из " + points.length*20;
-
-        //задержка для отрисовки каждого маршрута 150мс
-        // await new Promise(resolve => setTimeout(resolve, 150));
     }
     
 

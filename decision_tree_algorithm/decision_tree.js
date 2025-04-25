@@ -200,3 +200,10 @@ function visualizeTree() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawNode(tree, canvas.width / 2, 50, 0, ctx, 160, 100);
 }
+
+
+const nav = document.getElementById('nav');
+const hiddenNav = document.getElementById('hiddenNav');
+nav.addEventListener('click', () => {
+    hiddenNav.classList.toggle('active');
+});
