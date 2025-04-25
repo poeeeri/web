@@ -200,7 +200,6 @@ function create_population(matrix_length){
 }
 
 function calculating_length_and_fitness_in_population(matrix_length, population){
-   
     for (let i = 0; i < population.length; i++){
         let len = 0;
         population[i].route.unshift(0);
@@ -263,7 +262,6 @@ function crossover(matrix_length, population){
     sort_fitness(population);
 
     return offsprings;
-   
 }
 
 
@@ -275,7 +273,6 @@ function mutation(matrix_length, offsprings) {
     for (let i = 0; i < mutation_offsprings.length; i++) {
 
         if (Math.random() < percentage_of_mutations) {
-      
             let start = getRandomInt(0, offsprings[i].route.length - 1);
             let end = getRandomInt(start, offsprings[i].route.length - 1);
 
@@ -302,7 +299,7 @@ function run_gen_algorithm(matrix_length, population){
 
     //сортируем и оставляем лучших
     let result_population = [];
-   
+
     // добавляем старую популяцию
     for (let i = 0; i < population.length; i++) {
         result_population.push(population[i]);
