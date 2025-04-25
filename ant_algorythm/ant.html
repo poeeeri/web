@@ -6,28 +6,38 @@
     <title>Муравьиный алгоритм</title>
     <link rel="stylesheet"  href="ant.css"/>
     <script src="ant.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Russo+One&display=swap" rel="stylesheet">
+  
 </head>
 <body>
-    <div><h1>Муравьиный алгоритм для решения задачи о коммивояжёре</h1></div>
-    <canvas id="myCanvas" width="400" height="400"></canvas>
-    <h3><span id="count_city"></span></h3>
-    <span>Выберите количество, для размещения городов случайным образом</span><br><br>
-    
-    <div>
-        <span>3</span>
-        <input type="range" min="3" max="25" value="3" id="citySlider">
-        <span>25</span>
-        <span id="countOnSlider"></span>
-        <br>
-        <button id="generation_city">Сгенерировать</button>
-    </div>
 
-    <button id="clear">Очистить</button>
-    <br>
-    <button id="algorithm">Запустить муравьиный алгоритм</button>
-    <br>
-    <span id="step_algorythm"></span>
-    <span id="length"></span>
+    <section class="algorithm_show">
+
+        <div class="head">
+            <h1>Муравьиный алгоритм</h1>
+            <span id="count_city"></span>
+            <canvas id="myCanvas" width="600" height="400" ></canvas>
+            <span id="length"></span>
+            <button id="algorithm">START</button>
+            <div class="slider-container">
+                <div class="range">
+                    <label for="eps_range">3</label>
+                    <input type="range" id="citySlider" value="15" min="3" max="30">
+                    <label for="eps_range">30</label>
+                </div>
+                <span class="slider-value" id="countOnSlider">10</span>
+            </div>
+            <span id="step_algorythm"></span>
+            <button id="clear">Очистить</button>
+            <a href="javascript:history.back()">Назад</a> 
+            <button id="generation_city">Сгенерировать случайно</button>
+              
+
+        </div>
+        
+    </section>
     
 </body>
 </html>
