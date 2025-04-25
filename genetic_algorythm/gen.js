@@ -70,8 +70,6 @@ var slider = document.getElementById("citySlider");
 var count_on_slider = document.getElementById("countOnSlider");
 count_on_slider.innerHTML = slider.valueAsNumber;
 
-});
-
 
 
 slider.addEventListener('input', () => {
