@@ -10,7 +10,6 @@ class Matrix {
         this.rows = rows;
         this.cols = cols;
         this.matrix = Array.from({length: rows}, () => Array.from({length: cols}, () => 0.0));
-
     }
 }
 
@@ -138,7 +137,7 @@ class Network{
 }
 
 
-function convertImage(canvas) {
+function convertImage1(canvas) {
     const size = 28;
     const tempCanvas = document.createElement('canvas');
     tempCanvas.width = size;
@@ -165,52 +164,117 @@ function convertImage(canvas) {
     return input;
 }
 
+function convertImage(canvas) {
+    const size = 28;
+    const digitSize = 20;
+    let w = canvas.width;
+    let h = canvas.height;
+    const ctx1 = canvas.getContext("2d");
+
+    // где начинается цифра
+    const ctxData = ctx1.getImageData(0, 0, w, h).data;
+    let minX = w, maxX = 0;
+    let minY = h, maxY = 0;
+    for (let y = 0; y < h; y++) {
+        for (let x = 0; x < w; x++) {
+            const idx = (y * w + x) * 4;
+            const a = ctxData[idx + 3];
+            if (a  < 10) continue; 
+            const r = ctxData[idx];
+            const g = ctxData[idx + 1];
+            const b = ctxData[idx + 2];
+            const gray = 0.299 * r + 0.587 * g + 0.114 * b;
+            if (gray < 255.0 * 0.9) {
+                minX = Math.min(minX, x);
+                maxX = Math.max(maxX, x);
+                minY = Math.min(minY, y);
+                maxY = Math.max(maxY, y);
+            }
+        }
+    }
+
+    if (maxX < minX || maxY < minY) {
+        minX = 0; minY = 0;
+        maxX = w - 1; maxY = h - 1;
+    }
+
+    let newWidht = maxX - minX + 1;
+    let newHeight = maxY - minY + 1;
+
+    // центрирование
+    const tempCanvas = document.createElement('canvas');
+    tempCanvas.width = digitSize;
+    tempCanvas.height = digitSize;
+    const tempCtx = tempCanvas.getContext('2d');
+    tempCtx.fillStyle = "white";
+    tempCtx.fillRect(0, 0, digitSize, digitSize);
+
+    const scale = Math.min(digitSize / newHeight, digitSize/ newWidht);
+    const dw = newWidht * scale;
+    const dh = newHeight * scale;
+    const dx = (digitSize - dw) / 2;
+    const dy = (digitSize - dh) / 2;
+    tempCtx.drawImage(canvas, minX, minY, newWidht, newHeight, dx, dy, dw, dh);
+
+    // масштабирование
+    const newCanvas = document.createElement('canvas');
+    newCanvas.width = size;
+    newCanvas.height = size;
+    const newCtx = newCanvas.getContext("2d");
+    newCtx.fillStyle = "white";
+    newCtx.fillRect(0, 0, size, size);
+    const dxy = 4;
+    newCtx.drawImage(tempCanvas, dxy, dxy);
+
+    // читаем итоговое изображение
+    const image = newCtx.getImageData(0, 0, size, size).data;
+    const input = [];
+    for (let i = 0; i < image.length; i += 4) {
+        const r1 = image[i];
+        const g1 = image[i + 1];
+        const b1 = image[i + 2];
+        const gray1 = 0.299 * r1 + 0.587 * g1 + 0.114 * b1;
+        const normalized = (255.0 - gray1)/255;
+        input.push(normalized);
+    }
+    return input;
+}
+
+
 const canvas = document.getElementById('canvas_for_nn');
 const ctx = canvas.getContext('2d');
 
-const mouse = {x:0, y:0};
+ctx.lineWidth = 20;
+ctx.lineCap = 'round';
+
+const mouse = { x: 0, y: 0 };
 let draw = false;
-let lastX = 0, lastY = 0;
 
 canvas.addEventListener("mousedown", function(e) {
+    mouse.x = e.pageX - this.offsetLeft;
+    mouse.y = e.pageY - this.offsetTop;
     draw = true;
-    const rect = canvas.getBoundingClientRect();
-    lastX = e.clientX - rect.left;
-    lastY = e.clientY - rect.top;
+    ctx.beginPath();
+    ctx.moveTo(mouse.x, mouse.y);
 });
 
 canvas.addEventListener("mousemove", function(e) {
-    if (!draw) return;
-
-    const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const steps = 5;
-    for (let i = 0; i < steps; i++) {
-        const t = i / steps;
-        const interX = lastX + (x - lastX) * t;
-        const interY = lastY + (y - lastY) * t;
-
-        const radius = 15;
-        const gradient = ctx.createRadialGradient(interX, interY, 0, interX, interY, radius);
-        gradient.addColorStop(0, "rgba(0, 0, 0, 0.82)");
-        gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
-
-        ctx.fillStyle = gradient;
-        ctx.beginPath();
-        ctx.arc(interX, interY, radius, 0, Math.PI * 2);
-        ctx.fill();
+    if (draw) {
+        mouse.x = e.pageX - this.offsetLeft;
+        mouse.y = e.pageY - this.offsetTop;
+        ctx.lineTo(mouse.x, mouse.y);
+        ctx.stroke();
     }
-
-    lastX = x;
-    lastY = y;
 });
-
 
 canvas.addEventListener("mouseup", function(e) {
+    mouse.x = e.pageX - this.offsetLeft;
+    mouse.y = e.pageY - this.offsetTop;
+    ctx.lineTo(mouse.x, mouse.offsetTop);
+    ctx.closePath();
     draw = false;
 });
+
 
 
 document.getElementById("clear_canvas").addEventListener("click", function(e){
@@ -218,16 +282,12 @@ document.getElementById("clear_canvas").addEventListener("click", function(e){
     document.getElementById("output").textContent = "Это цифра...";
 });
 
-
-
 async function main() {
     const value = convertImage(canvas);
-
     const NW = new Network();
     const NWConfig = new DataNetwork(3, [784, 128, 10]);
     NW.init(NWConfig);
     await NW.read_weights();
-
     NW.set_input(value);
     const output = NW.forward_feed();
     const predictDigit = NW.search_max_index(output);

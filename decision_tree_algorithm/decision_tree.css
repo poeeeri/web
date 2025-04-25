@@ -1,0 +1,101 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    padding-top: 60px;
+    background-image:
+    linear-gradient(to right, rgb(195, 222, 205), rgb(234, 241, 236));
+    backdrop-filter: blur(5px);
+    background-blend-mode: overlay;
+    min-height: 100vh;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    transition: all 0.3s;
+    background-color: #6493735a;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+input[type="file"]::-webkit-file-upload-button,
+button {
+    background-color: rgba(83, 122, 104, 0.4);
+    border: 1px;
+    border-radius: 8px;
+    color:#fff;
+    display: inline-block;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    font-size: 1em;
+    font-weight: 500;
+    padding: 12px 24px;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    overflow: hidden;
+    margin: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.089);
+}
+
+input[type="file"]::before::-webkit-file-upload-button,
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(61, 105, 92, 0.6), rgba(23, 67, 53, 0.8));
+    z-index: -1;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+input[type="file"]:hover::-webkit-file-upload-button,
+button:hover {
+    color: #172b1d;
+    background-color: #8ba79d;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.121);
+}
+
+input[type="file"]:hover::before::-webkit-file-upload-button,
+button:hover::before {
+    opacity: 1;
+}
+
+input[type="file"]::after::-webkit-file-upload-button,
+button::after {
+    background: #ffffff18;
+    content: '';
+    position: absolute;
+}
+
+.textArea {
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+textarea {
+    background-color: #f6fffc;
+    border-radius: 8px;
+    border: 2px solid #ffffff;
+    box-shadow: 0 10px 15px #0000002e;
+}
+
+#treeCanvasID {
+    border:2px solid #fff;
+    background-color: #608d6e8c;
+    border-radius: 8px;
+}
+
+.container {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}

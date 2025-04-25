@@ -2,9 +2,9 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    padding-top: 80px;
+    padding-top: 60px;
     background-image:
-    linear-gradient(to right, rgb(195, 222, 205), rgb(96, 126, 107));
+    linear-gradient(to right, rgb(0, 0, 0), rgb(11, 22, 19));
     backdrop-filter: blur(5px);
     background-blend-mode: overlay;
     min-height: 100vh;
@@ -15,13 +15,13 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background-color: rgba(255, 255, 255, 0.582);
+    background-color: rgba(0, 0, 0, 0.735);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.434), rgb(18, 41, 35));;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     height: 60px;
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
-    
 }
 
 .table {
@@ -50,7 +50,7 @@ header {
 .link {
     display: block;
     padding: 10px 15px;
-    color: #333;
+    color: #949494;
     text-decoration: none;
     font-weight: 500;
     border-radius: 4px;
@@ -96,14 +96,16 @@ header {
     font-weight: 500;
     font-weight: normal;
     cursor: pointer;
-    text-shadow: 0 0 15px #254224;
+    text-shadow: 0 0 15px #246868;
     color: transparent;
     transition: all 0.5s;
     text-align: center;
+    /* font-family: Georgia, serif; */
+    font-family: system-ui;
 }
 
 .text_block:hover {
-    text-shadow: 0 0 0px #254224;
+    text-shadow: 0 0 0px #bfd8cb;
     cursor: pointer;
     backdrop-filter: blur(10px);
     background-size: 100%;
@@ -119,7 +121,7 @@ header {
         top: 60px;
         left: 0;
         right: 0;
-        background-color: rgba(255, 255, 255, 0.938);
+        background-color: rgb(21, 57, 48);
         flex-direction: column;
         align-items: center;
         padding: 20px 0;
