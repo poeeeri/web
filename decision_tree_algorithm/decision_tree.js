@@ -160,13 +160,13 @@ function trainTree() {
 
 function drawNode(node, x, y, depth, ctx, dx, dy) {
     const radius = 30;
-    ctx.font = "14px Roboto";
+    ctx.font = "14px 'Russo One'";
     ctx.textAlign = "center";
     ctx.lineWidth = 3;
     const label = node.isLeaf ? node.prediction : node.attribute;
     ctx.beginPath();
-    ctx.fillStyle = "#2F4F4F";
-    ctx.strokeStyle = "#333";
+    ctx.fillStyle = "#00DF82";
+    ctx.strokeStyle = "#000";
     ctx.arc(x, y, radius, 0, Math.PI * 2);
     ctx.fill();
     ctx.stroke();
