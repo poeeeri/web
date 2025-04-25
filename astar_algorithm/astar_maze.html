@@ -3,25 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A* Алгоритм</title>
+    <title>A* алгоритм</title>
     <link rel="stylesheet" href="style_maze.css">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    
 </head>
 <body>
-    <h1>A* Алгоритм</h1>
-
-    <div class="size-control">
-        <label for="gridSizeInput">Размер поля:</label>
-        <input type="number" id="gridSizeInput" min="5" max="50" value="5">
-        <button id="applySizeButton">Применить размер</button>
+    <div class="head">
+        <h1>A* алгоритм</h1>
+        <a href="javascript:history.back()" class="buttonBack">Назад</a>
     </div>
-    <canvas id="mazeCanvas" width="620" height="620"></canvas>
-    <button id="clearFieldButton">Очистить поле</button>
-    <button id="findPathButton">Найти путь</button>
-    <button id="generateMazeButton">Сгенерировать лабиринт</button>
-
+    
+    <div class="container">
+        
+        <canvas id="mazeCanvas" width="620" height="620"></canvas>
     
 
-    <a href="javascript:history.back()">Назад</a>
+        <div class="button-group">
+             <div class="size-control">
+                <label for="gridSizeInput" class="size-text">Размер поля:</label>
+                <input type="number" id="gridSizeInput" min="5" max="50" value="5">
+                <button id="applySizeButton" class="control-button">Применить размер</button>
+            </div>
+    
+    <button id="clearFieldButton" class="control-button">Очистить поле</button>
+    <button id="findPathButton" class="control-button">Найти путь</button>
+    <button id="generateMazeButton" class="control-button">Сгенерировать лабиринт</button>
+        </div>
+    
+
+    </div>
+    
     <script src="astar.js"></script>
 </body>
 </html>

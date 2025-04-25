@@ -35,10 +35,10 @@ canvas.onmousedown = function(event) {
     console.log('массив точек:', points);
     console.log('Клик на canvas произошел в точке:', point.x, point.y);
     ctx.beginPath();
-    ctx.lineWidth = 2.5;
+    ctx.lineWidth = 2;
     ctx.strokeStyle = "#00DF82";
     ctx.fillStyle =  "#00090E";
-    ctx.arc(point.x, point.y, 15, 0, 2*pi, false);
+    ctx.arc(point.x, point.y, 8, 0, 2*pi, false);
     ctx.stroke();
     ctx.fill();
     count_citys++;
@@ -103,10 +103,10 @@ generationt_citys.addEventListener('click', () => {
         count.innerHTML = "Количество городов на карте: " + count_citys;
 
         ctx.beginPath();
-        ctx.lineWidth = 2.5;
+        ctx.lineWidth = 2;
         ctx.strokeStyle = "#00DF82";
         ctx.fillStyle =  "#00090E";
-        ctx.arc(x_rand, y_rand, 15, 0, 2*pi, false);
+        ctx.arc(x_rand, y_rand, 8, 0, 2*pi, false);
         ctx.stroke();
         ctx.fill();
         ctx.closePath();
@@ -118,10 +118,10 @@ generationt_citys.addEventListener('click', () => {
 function drawPoints(points){
     for (let i = 0; i < points.length; i++) {
         ctx.beginPath();
-        ctx.lineWidth = 2.5;
+        ctx.lineWidth = 2;
         ctx.strokeStyle = "#00DF82";
         ctx.fillStyle = "#00090E";
-        ctx.arc(points[i].x, points[i].y, 15, 0, 2 * pi, false);
+        ctx.arc(points[i].x, points[i].y, 8, 0, 2 * pi, false);
         ctx.stroke();
         ctx.fill();
         ctx.closePath();
