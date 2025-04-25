@@ -1,112 +1,86 @@
-/* h1 {
-    color: rgb(0, 0, 0);
-    font-size: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    
-}
-
-#grid {
-    display: grid;
-    flex-direction: column;
-    align-items: center;
-    grid-template-columns: repeat(31, 30px);
-    grid-template-rows: repeat(31, 30px);
-    gap: 2px;
-    margin: 40px auto;
-}
-
-.cell {
-    width: 30px;
-    height: 30px;
-    background-color: rgb(68, 67, 68);
-    border: 1px solid #616161;
-    box-sizing: border-box;
-}
-
-.wall {
-    background-color:rgb(68, 67, 68);
-}
-
-.free {
-    background-color: white;
-
-}
-
-.start {
-    background-color: greenyellow;
-}
-
-.end {
-    background-color: red;
-}
-
-.range_info_div {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.buttons {
-    display: flex;
-    align-items: center;
+body {
+    margin: 0;
+    padding: 0;
+    background: #030F0F;
+    height: 100vh;
+    color: white;
 }
 
 .container {
-    /* background-color: rgb(143, 199, 216); */
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-body {
-    background-color: rgb(143, 199, 216);
-}
-
-input[type="range"] {
-    width: 200px;
-    height: 8px; 
-    border-radius: 5px;
-}
-
-
-
-#generateButton {
-    width: 120px;
-    height: 50px;
-    background-color: rgb(224, 163, 114);
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
-    display: inline-flex;
-
-}
-
-#searchPath {
-    width: 120px;
-    height: 50px;
-    background-color: rgb(224, 163, 114);
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    display: inline-flex;
-    
-} */ 
-
-
-
-
-
-body {
-    background-color: #a4eccb;
-    font-family: Arial, sans-serif;
+    padding-left: 30px;
+    padding-top: 20px; 
     display: flex;
-    flex-direction: column;
+    gap: 30px;
+    padding: 20px;  
+    max-width: 1000px;
+   
+
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    
 }
 
 h1 {
-    margin-top: 20px;
+    color: #00DF82;
+    padding-left: 60px;
+    font-family: 'Russo One';
+    font-size: 50px;
+    
 }
 
+.buttonBack {
+    display: inline-flex;
+    justify-content: flex-end;
+    background-color: #030F0F;
+    border: 1px solid #00DF82;
+    border-radius: 14px;
+    padding: 6px 12px;
+    font-family: 'Bitter';
+    font-size: 14px;
+    color: #00DF82 !important;
+    margin: 20px;
+    text-decoration: none !important;
+}
+
+.buttonBack:hover {
+    background-color: #00DF82;
+    color: #030F0F !important;
+    
+}
+
+.control-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #030F0F;
+    border: 1px solid #00DF82;
+    border-radius: 14px;
+    padding: 10px 15px;
+    font-family: 'Bitter';
+    font-size: 14px;
+    color: #00DF82 !important;
+    margin: 20px;
+    cursor: pointer;
+
+}
+
+.control-button:hover {
+    background-color: #00DF82;
+    color: #030F0F !important;
+}
+
+.size-text{
+    font-family: 'Bitter Light';
+}
+
+
 canvas  {
-    border: 2px solid #444;
-    margin: 20px 0;
-    background-color: #fff;
+    border: 2px solid #F1F7F7;
+    background-color: #F1F7F7;
+    margin-top: -20px;
 }
 
