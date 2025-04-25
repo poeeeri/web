@@ -55,33 +55,12 @@ justify-self: center;
   justify-self: center;
 }
 
-#algorithm {
-  grid-column: 3/5;
-  /* margin-top: -150px; */
-  align-self: center;
-  justify-self: center;
-  font-size: clamp(1rem, 2.5vw, 3.5rem);
-  font-family: 'Bitter';
-  font-weight: 700;
-  width: 30%;
-  color: #00DF82;
-  border: 2px solid #00DF82;
-  border-radius: 30px;
-  box-shadow: 0 0 10px rgba(0, 223, 130, 0.5), 0 0 20px
-  rgba(0, 223, 130, 0.3), 0 0 30px rgba(0, 223, 130, 0.2);
-  transition: all 0.4s ease;
-}
-
-#algorithm:hover{
-  background-color: #00DF82;
-  color: #00090E;
-}
 
 #step_algorythm{
-  font-family: 'bitter';
-  font-weight: 400;
-  font-size: 2.5vh;
-  color: #F1F7F7;
+    font-family: 'bitter';
+    font-weight: 400;
+    font-size: 2.5vh;
+    color: #F1F7F7;
   grid-row: 6/7;
   align-self: center;
   justify-self: center;
@@ -98,80 +77,83 @@ justify-self: center;
 }
 
 button {
-  background-color: #00090E;
-  border: 1px;
-  border-radius: 8px;
-  color:#fff;
-  display: flex;
-  text-transform: uppercase;
-  transition: all 0.3s;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: "Russo One", sans-serif;
-  padding: 12px 24px;
-  cursor: pointer;
-  backdrop-filter: blur(5px);
-  overflow: hidden;
-  margin: 8px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.089);
+    background-color: #00090E;
+    border: 1px;
+    border-radius: 8px;
+    color:#fff;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: "Russo One", sans-serif;
+    padding: 12px 24px;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    overflow: hidden;
+    margin: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.089);
 }
 
 button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #00DF82;;
-  z-index: -1;
-  transition: all 0.3s ease;
-  opacity: 0;
+    content: '';
+    position: absolute;
+    justify-self: center;
+    align-self: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #00DF82;;
+    z-index: -1;
+    transition: all 0.3s ease;
+    opacity: 0;
 }
 
 button:hover {
-  background-color: #00DF82;
-  color: #00090E;
-  transform: translateY(-2px);
-  box-shadow: 0 0 10px rgba(0, 223, 130, 0.5), 0 0 20px
-  rgba(0, 223, 130, 0.3), 0 0 30px rgba(0, 223, 130, 0.2);
+    justify-self: center;
+    align-self: center;
+    background-color: #00DF82;
+    color: #00090E;
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(0, 223, 130, 0.5), 0 0 20px
+    rgba(0, 223, 130, 0.3), 0 0 30px rgba(0, 223, 130, 0.2);
 }
 
 button::after {
-  background: #ffffff18;
-  content: '';
-  position: absolute;
+    justify-self: center;
+    align-self: center;
+    background: #ffffff18;
+    content: '';
+    position: absolute;
 }
 
 #algorithm {
-    align-self: center;
-    justify-self: center;
-    grid-column: 3/5;
-    margin-top: -150px;
-    margin-bottom: -80px;
-    padding: 10px; 
-    font-size: clamp(1rem, 2.5vw, 3.5rem);
-    font-family: 'Bitter';
-    font-weight: 1000;
-    border: none;
-    width: 50%;
-    aspect-ratio: 4 / 1;
-    color: #00DF82; 
-    text-decoration: none;
-    border: 2px solid #00DF82;
-    border-radius: 30px;
-    box-shadow: 0 0 10px rgba(0, 223, 130, 0.5), 0 0 20px
-    rgba(0, 223, 130, 0.3), 0 0 30px rgba(0, 223, 130, 0.2);
-    transition: all 0.4s ease;
-  }
-  
-  #algorithm:hover{
-    background-color: #00DF82;
-    color: #00090E;
-  }
+  grid-column: 3/5;
+  /* margin-top: -150px; */
+  align-self: center;
+  justify-self: center;
+  font-size: clamp(1rem, 2.5vw, 3.5rem);
+  font-family: 'Bitter';
+  font-weight: 700;
+  /* width: 30%; */
+  color: #00DF82;
+  border: 2px solid #00DF82;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 223, 130, 0.5), 0 0 20px
+  rgba(0, 223, 130, 0.3), 0 0 30px rgba(0, 223, 130, 0.2);
+  transition: all 0.4s ease;
+}
+
+#algorithm:hover{
+  background-color: #00DF82;
+  color: #00090E;
+}
 
 .slider-container {
-  align-self: center;
+    align-self: center;
   justify-self: center;
   width: 50%;
   grid-column: 3/5;
@@ -186,7 +168,7 @@ button::after {
 }
 
 input[type="range"] {
-  -webkit-appearance: none;
+    -webkit-appearance: none;
   width: 250px;
   height: 10px;
   border-radius: 5px;
