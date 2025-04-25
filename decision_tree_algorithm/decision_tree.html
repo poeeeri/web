@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дерево решений</title>
+    <link rel="stylesheet"  href="decision_tree.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Russo+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <button id="vizTree" onclick="trainTree()">Построить дерево</button>
+        <button id="vizDec" onclick="decision()">Вывести решение</button>
+    </header>
+    <h1>Визуализация алгоритма дерева решений</h1>
+    <div class="container">
+        <div class="area">
+            <div class="textArea">
+                <h3>Обучающая выборка:</h3>
+                <textarea id="trainTextArea" rows="8" cols="60" placeholder="Погода, Температура, Настроение, Гулять"></textarea>
+                <br>
+                <input type="file" id="fileInputForTrain" accept=".csv" onchange="loadDataForTrain(event)">
+            </div>
+            <div class="textArea">
+                <h3>Данные для поиска решения:</h3>
+                <textarea id="testTextArea" rows="3" cols="60" placeholder="Солнечно, Тепло, Плохое"></textarea>
+                <br>
+                <input type="file" id="fileInputForTest" accept=".csv" onchange="loadDataForTest(event)">
+            </div>
+        </div>
+        <div class="treeCanvas">
+            <canvas id="treeCanvasID" width="600" height="400"></canvas>
+        </div>
+    </div>
+    <a href="javascript:history.back()">Назад</a> 
+    <script src="canvas_for_tree.js"></script>
+    <script src="decision_tree.js"></script>
+</body>
+</html>

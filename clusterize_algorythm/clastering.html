@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>clastering</title>
-    <link rel="stylesheet"  href="clastering.css"/>
+    <link rel="stylesheet"  href="clust_style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Russo+One&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -16,9 +19,20 @@
     <div class="text_h1"><h1>Отметьте точки на холсте</h1></div>
     <div class="container">
         <div class="canvas_clasterization">
-            <canvas id="canvas_for_clusterization" width="400" height="400"></canvas>
-            <div id="info"></div>
+            <div class="canvas_block">
+                <canvas id="canvas_for_clusterization1" width="300" height="300"></canvas>
+                <div id="info1" class="info_text"></div>
+            </div>
+            <div class="canvas_block">
+                <canvas id="canvas_for_clusterization2" width="300" height="300"></canvas>
+                <div id="info2" class="info_text"></div>
+            </div>
+            <div class="canvas_block">
+                <canvas id="canvas_for_clusterization3" width="300" height="300"></canvas>
+                <div id="info3" class="info_text"></div>
+            </div>
         </div>
+        
         <div>
             <p class="number_of_classes">Выберите количество кластеров для K-средних: </p>
             <div class="range_info_div">

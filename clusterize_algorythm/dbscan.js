@@ -70,8 +70,11 @@ function setupDBSCAN(eps) {
             uniqueClusters.add(cluster);
         }
     }
-    updateCanvas();
+    const canvas2 = document.getElementById("canvas_for_clusterization2");
+    const ctx2 = canvas2.getContext("2d");
+    ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
+    points.forEach(p => drawPointOn(ctx2, p));
     let count = points.filter(p => p.color === "gray").length;
     const clusterCount = uniqueClusters.size;
-    info.textContent = `найдено кластеров: ${clusterCount} (шум: ${count})`;
+    info2.textContent = `Найдено кластеров: ${clusterCount} (шум: ${count})`;
 }
