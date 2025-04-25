@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>neural network</title>
+    <link rel="stylesheet"  href="neural.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Russo+One&display=swap" rel="stylesheet">
+</head> 
+<body>
+    <button id="nav">☰ Алгоритмы</button>
+    <nav id="hiddenNav">
+        <a href="../index.html">Главная</a>
+        <a href="../astar_algorithm/astar_maze.html">A* алгоритм</a>
+        <a href="../clusterize_algorythm/clastering.html">Кластеризация</a>
+        <a href="../genetic_algorythm/gen.html">Генетический алгоритм</a>
+        <a href="../ant_algorythm/ant.html">Муравьиный алгоритм</a>
+        <a href="../decision_tree_algorithm/decision_tree.html">Дерево решений</a>
+        <a href="#">Нейронная сеть</a>
+    </nav>
+    <h1>Нейросеть</h1>
+    <div class="container">
+        <div class="canvas_nn">
+            <canvas id="canvas_for_nn" width="300" height="300"></canvas>
+        </div>
+        <div class="buttons">
+            <output id="output">Это цифра...</output>
+            <button class="button1" id="clear_canvas" type="button">Очистить холст</button>
+            <button class="button1" onclick="main()" type="button">Распознать</button>
+        </div>
+    </div>
+    <a href="javascript:history.back()">Назад</a> 
+    <script src="nav.js"></script>
+    <script src="neural_nw.js"></script>
+</body>

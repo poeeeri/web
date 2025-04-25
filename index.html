@@ -3,21 +3,76 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Ляляляля задоооор</title>
-
-  <link rel="stylesheet" href="style.css">
+  <title>Algorithms</title>
+  <link rel="stylesheet" href="style_main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Russo+One&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="site-header">
-        <div class="wrapper site-header__wrapper">
-            <a href="#algorithm_name_nn">Нейросеть</a>
-            <a href="#algorithm_name_clasterization">Кластеризация</a>
-            <a href="#algorithm_name_A_star">A star</a>
-            <a href="#algorithm_name_ant_algorithm">Муравьиный алгоритм</a>
-            <a href="#algorithm_name_genetic_algorithm">Генетический алгоритм</a>
-            <a href="#algorithm_name_decision_tree" class="claster">Дерево решений</a>
-        </div>
-      </header>
+  <button class="scroll-to-information" onclick="document.getElementById('information').scrollIntoView({ behavior: 'smooth' });">
+    О проекте
+  </button>
+
+  <section class="hero"> 
+    <span style="color: #00DF82; font-family: 'Russo One'; font-size: 8vh;">
+      <span style="font-size: 12vh;">Алгоритмы</span><br>приближённых вычислений
+    </span>
+    <button class="scroll-to-content" onclick="document.getElementById('content').scrollIntoView({ behavior: 'smooth' });">
+      Смотреть<br>↓
+    </button>
+  </section>
+  <section id="content" class="content" 
+    style="
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: repeat(2, auto); 
+    row-gap: 0px; /* меньше вертикальный зазор */
+    column-gap: 60px; /* ширина между кнопками не меняется */
+    justify-items: center; 
+    align-items: center; 
+    max-width: 600px; 
+    margin: 0 auto;
+    min-height: 100vh; 
+    background-color: #00090E;
+    padding: 6rem;
+    min-width: 100%;
+    max-width: 100%;">
+
+    <a href="astar_algorithm/astar_maze.html" class="btn">A*</a>
+    <a href="clusterize_algorythm/clastering.html" class="btn">Кластеризация</a>
+    <a href="genetic_algorythm/gen.html" class="btn">Генетический алгоритм</a>
+    <a href="ant_algorythm/ant.html" class="btn">Муравьиный алгоритм</a>
+    <a href="decision_tree_algorithm/decision_tree.html" class="btn">Дерево решений</a>
+    <a href="neural_network/neural.html" class="btn">Нейронная сеть</a>
+  </section>
+  <section id="information" class="information" style="position: relative;">
+    <span style="text-align: center">О проекте</span>
+    <p style="text-align: center">Этот сайт — интерактивная платформа для визуализации алгоритмов из области искусственного 
+    интеллекта и приближённых вычислений. Здесь вы можете увидеть в действии 6 ключевых алгоритмов: 
+    <b>A*, кластеризацию, генетический и муравьиный алгоритмы, дерево решений и нейросеть для распознавания цифр</b>.</p>
+
+    <p style="font-size: 4vh;"><b>Над проектом работала команда студентов HITs:</b></p>
+    <ul style="text-align: center;">
+      <li>Филиппова Полина <a href="https://t.me/polyaislove" target="_blank" style="color: #00DF82;">(Telegram)</a></li>
+      <li>Доржиева Пурбо-Суруна <a href="https://github.com/poeeeri" target="_blank" style="color: #00DF82;">(GitHub)</a></li>
+      <li>Новикова Ирина <a href="https://t.me/irok0_0" target="_blank" style="color: #00DF82;">(Telegram)</li>
+    </ul>
+      <section id="github" style="margin-top: 10vh; display: flex; justify-content: center; align-items: center; width: auto; white-space: nowrap;">
+        <span id="icon" style="margin-right: 10px;">
+          <img src="images/icon_github.png" style="width: 4vh; height: auto;">
+        </span>
+        <a href="https://github.com/poeeeri/web" target="_blank" style="font-family: 'bitter-light'; color: #00DF82; font-size: 2vh;">
+          Ссылка на репозиторий GitHub
+        </a>
+      </section>
+  </section>
+  <script>
+    window.addEventListener('load', function() {
+      if (window.location.hash) {
+        window.location.hash = ''; 
+      }
+    });
+  </script>
 </body>
 </html>
