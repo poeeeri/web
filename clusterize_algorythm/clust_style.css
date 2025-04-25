@@ -1,15 +1,30 @@
+* {
+    margin: 5;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial;
     margin: 0;
     padding: 20px;
-    background-image: url(komarustay.png),   
-    linear-gradient(to right, rgb(96, 126, 107), rgb(29, 76, 50) 100%);
-    background-attachment: fixed;
-    background-blend-mode: overlay;
+    background-color: #00090E;
 }
 
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url("komarustay.png");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+
 button {
-    background-color: rgba(154, 180, 154, 0.4);
+    background-color: #00090E;
     border: 1px;
     border-radius: 8px;
     color:#fff;
@@ -18,6 +33,7 @@ button {
     transition: all 0.3s;
     font-size: 1em;
     font-weight: 500;
+    font-family: "Russo One", sans-serif;
     padding: 12px 24px;
     cursor: pointer;
     backdrop-filter: blur(5px);
@@ -33,21 +49,18 @@ button::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, rgba(119, 159, 147, 0.6), rgba(86, 124, 112, 0.8));
+    background: #00DF82;;
     z-index: -1;
     transition: all 0.3s ease;
     opacity: 0;
 }
 
 button:hover {
-    color: #172b1d;
-    background-color: #8ba79d;
+    background-color: #00DF82;
+    color: #00090E;
     transform: translateY(-2px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.089);
-}
-
-button:hover::before {
-    opacity: 1;
+    box-shadow: 0 0 10px rgba(0, 223, 130, 0.5), 0 0 20px
+    rgba(0, 223, 130, 0.3), 0 0 30px rgba(0, 223, 130, 0.2);
 }
 
 button::after {
@@ -57,23 +70,35 @@ button::after {
 }
 
 h1 {
-    color: aliceblue;
+    color: #00DF82;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    font-family: "Russo One", sans-serif;
+    margin: 50px auto 20px;
+    width: auto;
+    font-size: 2em;
+    max-width: 500px;
+    text-align: center;
 }
 
 p {
-    color:aliceblue;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-family: "Russo One", sans-serif;
+    font-size: 3vh; 
+    margin-top: 1rem; 
+    margin-top: 3vh;
+    margin-bottom: 3vh; 
+    color: #fff;
+
 }
 
 a {
+    bottom: 0px;
     flex: 1;
     line-height: 3;
-    text-align: center;
-    background-size: 20px;
-    outline-color: transparent;
-}
-
-a {
+    margin-bottom: 20px;
+    position: fixed;
     display: inline-block;
     text-align: center;
     background-size: 20px;
@@ -81,6 +106,7 @@ a {
     transition: all 0.3s ease;
     text-decoration: none;
     border-radius: 10px;
+    font-family: "Russo One", sans-serif;
     color:#ffffff;
     outline-color: transparent;
     background-color: rgba(6, 49, 35, 0.4);
@@ -88,10 +114,11 @@ a {
 }
 
 a:hover {
-    background: #fff;
-    color: #172b1d;
+    background-color: #00DF82;
+    color: #00090E;
     border-radius: 5px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(0, 223, 130, 0.5), 0 0 20px
+    rgba(0, 223, 130, 0.3), 0 0 30px rgba(0, 223, 130, 0.2);
 }
 
 a:active {
@@ -107,26 +134,12 @@ a:active {
     justify-content: center;
 }
 
-.text_h1 {
-    border: 1px solid #fff;
-    border-radius: 12px;
-    color:#fff;
-    background-color: #02291377;
-    margin: 50px auto 20px;
-    width: auto;
-    max-width: 500px;
-    text-align: center;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.089);
-}
-
 header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background-color: rgb(21, 43, 27, 0.9);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.089);
+    background-color: rgba(4, 10, 6, 0.9);
     z-index: 1000;
     height: 60px;
     display: flex;
@@ -143,6 +156,7 @@ header {
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    font-family: "Russo One", sans-serif;
     background-color: #1433284d;
     border-radius: 8px;
     margin:5px;
@@ -165,9 +179,10 @@ input[type="range"]::-webkit-slider-runnable-track {
     width: 100%;
     height: 10px;
     cursor: pointer;
-    background: linear-gradient(90deg, #9ab49a 0%, #779f93 100%);
+    background: #9ab4a7;
     border-radius: 5px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 0 10px rgba(0, 223, 130, 0.5), 0 0 20px
+    rgba(0, 223, 130, 0.3), 0 0 30px rgba(0, 223, 130, 0.2);
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -178,7 +193,8 @@ input[type="range"]::-webkit-slider-thumb {
     background: #ffffff;
     cursor: pointer;
     margin-top: -7px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 0 10px rgba(0, 223, 130, 0.5), 0 0 20px
+    rgba(0, 223, 130, 0.3), 0 0 30px rgba(0, 223, 130, 0.2);
     border: 2px solid #779f93;
     transition: all 0.2s ease;
 }
@@ -189,10 +205,9 @@ input[type="range"]:hover::-webkit-slider-thumb {
 }
 
 .canvas_block {
-    display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 10px;
+    margin: 0 auto;
 }
 
 .info_text {
@@ -201,8 +216,9 @@ input[type="range"]:hover::-webkit-slider-thumb {
     background-color: rgba(20, 50, 40, 0.3);
     color: white;
     border-radius: 6px;
+    font-family: "Russo One", sans-serif;
     text-align: center;
-    font-size: 14px;
+    font-size: 20px;
     max-width: 300px;
     box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
@@ -214,10 +230,12 @@ input[type="range"]:hover::-webkit-slider-thumb {
     backdrop-filter: blur(5px);
     margin-bottom: 20px; 
     margin-right: 100px;
+    flex-wrap: wrap;
     margin-left: 50px;
     display: flex;
     border: 1px solid rgba(0, 0, 0, 0.089);
-    box-shadow: 0 10px 20px rgba(0, 255, 85, 0.742);
+    box-shadow: 0 0 10px rgba(0, 223, 130, 0.5), 0 0 20px
+    rgba(0, 223, 130, 0.3), 0 0 30px rgba(0, 223, 130, 0.2);
 }
 
 #canvas_for_clusterization1,
@@ -228,43 +246,21 @@ input[type="range"]:hover::-webkit-slider-thumb {
     background: #ffffff;
     display: block;
     margin: 0 auto;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.089);
 }
 
 label, .count_of_points_text {
     color:#ffffffd0;
-    text-shadow: 1px 2px 3px rgba(0,0,0,0.2);
     margin-bottom: 5px;
+    font-family: "Russo One", sans-serif;
 }
 
-@media (max-width: 1000) {
+@media (max-width: 768px) {
     .container {
         flex-direction: column;
     }
 
-    .text_h1 {
-        width: auto;
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-
-    input[type="range"] {
-        width: 200px;
-    }
-}
-
-@media (max-width: 768) {
-    .container {
-        flex-direction: column;
-    }
-
-    .text_h1 {
-        width: auto;
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-
-    input[type="range"] {
-        width: 200px;
+    .canvas_clasterization {
+        max-width: 500px;
+        padding: 15px;
     }
 }
