@@ -125,8 +125,6 @@ generationt_citys.addEventListener('click', () => {
     
 });
 
-
-
 function drawPoints(points){
     // ctx.clearRect(0, 0, width, height);
     for (let i = 0; i < points.length; i++) {
@@ -157,8 +155,6 @@ function drawRouteWithPoints(route, points){
         const point = points[route[i]];
         ctx.lineTo(point.x, point.y);
     }
-
-    // ctx.lineTo(points[0].x, points[0].y);
     ctx.stroke();
     drawPoints(points);
 }
@@ -342,7 +338,6 @@ algorithm.addEventListener('click', async () => {
     
 
     for (let i = 0; i < points.length*20; i++){
-        // run_ant_algorithm(matrix_inf);
         
         let matrix_trips = trips_ants(matrix_inf); //создаем маршруты муравьев
         updating_pheromones(matrix_inf, matrix_trips); //обновляем феромоны
@@ -363,6 +358,7 @@ algorithm.addEventListener('click', async () => {
         
         route_len.innerHTML = "Длина маршрута: " + best_len.toFixed(2);
         step_algorythm.innerHTML = "Итерация: " + (i+1) + " из " + points.length*20;
+
 
         //задержка для отрисовки каждого маршрута 150мс
         await new Promise(resolve => setTimeout(resolve, 100));

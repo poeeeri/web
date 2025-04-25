@@ -34,7 +34,6 @@ canvas.onmousedown = function(event) {
     points.push(point);
     console.log('массив точек:', points);
     console.log('Клик на canvas произошел в точке:', point.x, point.y);
-    // ctx.fillRect(x-5,y-5,10,10);
     ctx.beginPath();
     ctx.lineWidth = 2.5;
     ctx.strokeStyle = "#00DF82";
@@ -43,6 +42,7 @@ canvas.onmousedown = function(event) {
     ctx.stroke();
     ctx.fill();
     count_citys++;
+    
     // ОТОБРАЖЕНИЕ ТЕКУЩЕГО КОЛИЧЕСТВА ДОВ НА КАРТЕ
     console.log('Количество городов:', count_citys);
     count.innerHTML = "Количество городов на карте: " + count_citys;
@@ -59,6 +59,7 @@ clear.addEventListener('click', () => {
     route_len.innerHTML = '';
     step_algorythm.innerHTML = '';
 
+
 })
 
 
@@ -68,6 +69,10 @@ clear.addEventListener('click', () => {
 var slider = document.getElementById("citySlider");
 var count_on_slider = document.getElementById("countOnSlider");
 count_on_slider.innerHTML = slider.valueAsNumber;
+
+});
+
+
 
 slider.addEventListener('input', () => {
     console.log(slider.valueAsNumber); // текущее количество городов
@@ -113,7 +118,6 @@ generationt_citys.addEventListener('click', () => {
 });
 
 function drawPoints(points){
-    // ctx.clearRect(0, 0, width, height);
     for (let i = 0; i < points.length; i++) {
         ctx.beginPath();
         ctx.lineWidth = 2.5;
@@ -130,7 +134,6 @@ function drawPoints(points){
 function drawRouteWithPoints(route, points){
 
     ctx.clearRect(0, 0, width, height);
-    // drawPoints(points);
 
     ctx.strokeStyle = "#F1F7F7";
     ctx.lineWidth = 2;
@@ -183,8 +186,9 @@ function create_population(matrix_length){
             const j = Math.floor(Math.random() * (i+1));
             [route[i], route[j]] = [route[j], route[i]];
         }
-        
+
         const key = route.join(','); //преобразуем массив в строку чтобы исключать появление одинаковых маршрутов
+
         if (!population.has(key)){
             population.add(key);
             result.push(new Individual(route));
@@ -300,7 +304,6 @@ function run_gen_algorithm(matrix_length, population){
 
     let offsprings = crossover(matrix_length, population);
     let mutation_offsprings = mutation(matrix_length, offsprings);
-    // console.log('мутации: ', mutation_offsprings);
 
     //сортируем и оставляем лучших
     let result_population = [];
@@ -315,11 +318,6 @@ function run_gen_algorithm(matrix_length, population){
     }
 
     sort_fitness(result_population);
-    // console.log('все до селекции: ', result_population);
-
-    // for (let i = 0; i < population.length; i++){
-    //     result_population.pop();
-    // }
     result_population = result_population.slice(0, population.length);
 
 
@@ -342,8 +340,6 @@ algorithm.addEventListener('click', async () => {
         for (let j = 0; j < points.length; j++){
             if (i != j){
                 matrix_length[i][j] = Math.pow(Math.pow(points[j].x - points[i].x, 2) + Math.pow(points[j].y - points[i].y, 2), 0.5);
-                // console.log('массив длин:', matrix_length[i][j]);
-                // matrix_length[i][j] = 1;
     
             }
         }
@@ -354,15 +350,8 @@ algorithm.addEventListener('click', async () => {
     calculating_length_and_fitness_in_population(matrix_length, population);
     sort_fitness(population);
     console.log('начальная популяция', population);
-    // var mixed_population = crossover(matrix_length, population);
-    // sort_fitness(mixed_population);
-    // console.log('потомки: ', mixed_population);
-    // mutation_offsprings = mutation(matrix_length, mixed_population);
-    // console.log('мутации: ', mutation_offsprings);
-
     for (let i = 0; i < points.length*15; i++){
         population = run_gen_algorithm(matrix_length, population);
-        // console.log('итог: ', population);
         console.log('лучшая особь: ', population[0]);
         let best_rout = [...population[0].route];
         best_rout.unshift(0);
@@ -387,5 +376,9 @@ algorithm.addEventListener('click', async () => {
 });
 
 
-
+const nav = document.getElementById('nav');
+const hiddenNav = document.getElementById('hiddenNav');
+nav.addEventListener('click', () => {
+    hiddenNav.classList.toggle('active');
+});
 
