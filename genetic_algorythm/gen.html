@@ -6,34 +6,40 @@
     <title>Генетический алгоритм</title>
     <link rel="stylesheet"  href="gen.css"/>
     <script src="gen.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Russo+One&display=swap" rel="stylesheet">
+  
 </head>
 <body>
-    <header>
-        <div class="buttons">
+
+
+    <section class="algorithm_show">
+
+        <div class="head">
+            <h1>Генетический алгоритм</h1>
+            <a href="javascript:history.back()">Назад</a> 
+            <span id="count_city"></span>
+            <canvas id="myCanvas" width="600" height="500" ></canvas>
+            <span id="length"></span>
+            <button id="algorithm">START</button>
+            <div class="slider-container">
+                <div class="slider-wrapper">
+                  <input type="range" min="3" max="30" value="10" id="citySlider">
+                  <span class="slider-value" id="countOnSlider">10</span>
+                </div>
+            </div>
+            <span id="step_algorythm"></span>
             <button id="clear">Очистить</button>
-            <button id="algorithm">Запустить генетический алгоритм</button>
-            <button id="generation_city">Сгенерировать точки</button>
+            <button id="generation_city">Сгенерировать случайно</button>
+              
+
         </div>
-    </header>
-    <div class="container">
-        <div>
-            <div><h1>Генетический алгоритм решения задачи о коммивояжёре</h1></div>
-            <div class="canvas_genetic">
-                <canvas id="myCanvas" width="400" height="400"></canvas>
-            </div>
-                <h3><span id="count_city"></span></h3>
-        </div>
-        <div class="range">
-            <div class="range_info_div">
-                <label>3</label>
-                <input type="range" min="3" max="100" value="3" id="citySlider">
-                <label>100</label>
-            </div>
-            <label id="countOnSlider"></label>
-            <p id="step_algorythm"></p>
-            <p id="length"></p>
-        </div>
-    </div>
-    <a href="javascript:history.back()">Назад</a> 
+
+        
+        
+        
+    </section>
+    
 </body>
 </html>
