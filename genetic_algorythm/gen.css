@@ -89,9 +89,9 @@
   font-family: 'Bitter';
   font-weight: 700;
   border: none;
-  width: 30%; /*на всю ширину колонки*/
-  aspect-ratio: 3 / 1; /*соотношение сторон — одинаковая "форма"*/
-  color: #00DF82; /*text-transform: uppercase;*/
+  width: 30%;
+  aspect-ratio: 3 / 1;
+  color: #00DF82; 
   text-decoration: none;
   background-color: transparent;
   border: 2px solid #00DF82;
@@ -102,7 +102,7 @@
 }
 
 #algorithm:hover{
-  background-color: #00DF82; /* Цвет кнопки при наведении */
+  background-color: #00DF82;
   color: #00090E;
 }
 
@@ -170,14 +170,11 @@ input[type=range] {
   border-radius: 4px;
   outline: none;
 }
-  
-  /* ====== ШКАЛА ====== */
-  input[type=range]::-webkit-slider-runnable-track {
-    height: 10px;
-    /*background: #00DF82; /* кастомный цвет шкалы */
-    border: 3px solid #00DF82;
-    border-radius: 4px;
-  }
+input[type=range]::-webkit-slider-runnable-track {
+  height: 10px;
+  border: 3px solid #00DF82;
+  border-radius: 4px;
+}
 
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
