@@ -50,7 +50,6 @@ function updateCanvas() {
     document.getElementById("count_of_points").textContent = points.length;
 }
 
-// Очистка холстов и списка точек
 document.getElementById("clear_canvas").addEventListener("click", () => {
     points.length = 0;
     updateCanvas();

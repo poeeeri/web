@@ -40,20 +40,6 @@ function meanShift(points, bandwidth = 50) {
 
 function setupMeanShift() {
     const colors = ["red", "blue", "green", "purple", "orange", "yellow", "magenta"];
-    // ctx.clearRect(0, 0, canvas.width, canvas.height);
-    // points.forEach((p) => {
-    //     let minDist = Infinity;
-    //     let clusterIdx = 0;
-    //     clusters.forEach((center, idx) => {
-    //         const d = euclideanForMeanShift(p, center);
-    //         if (d < minDist) {
-    //             minDist = d;
-    //             clusterIdx = idx;
-    //         }
-    //     });
-    //     const color = colors[clusterIdx % colors.length];
-    //     drawPoint(p.x, p.y, color);
-    // });
     const canvas3 = document.getElementById("canvas_for_clusterization3");
     const ctx3 = canvas3.getContext("2d");
     ctx3.clearRect(0, 0, canvas3.width, canvas3.height);

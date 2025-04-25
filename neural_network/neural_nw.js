@@ -136,34 +136,6 @@ class Network{
     
 }
 
-
-function convertImage1(canvas) {
-    const size = 28;
-    const tempCanvas = document.createElement('canvas');
-    tempCanvas.width = size;
-    tempCanvas.height = size;
-
-    const tempCtx = tempCanvas.getContext('2d');
-    tempCtx.fillStyle = "white";
-    tempCtx.fillRect(0, 0, size, size);
-    tempCtx.drawImage(canvas, 0, 0, size, size);
-
-    const resized = tempCtx.getImageData(0, 0, size, size);
-    const pixels = resized.data;
-
-    const input = [];
-    for (let i = 0; i < pixels.length; i += 4) {
-        const r = pixels[i];
-        const g = pixels[i + 1];
-        const b = pixels[i + 2];
-        const gray = 0.299 * r + 0.587 * g + 0.114 * b;
-        const normalized = 1.0 - gray / 255.0;
-        input.push(normalized);
-    }
-
-    return input;
-}
-
 function convertImage(canvas) {
     const size = 28;
     const digitSize = 20;

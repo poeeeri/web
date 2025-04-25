@@ -100,7 +100,6 @@ header {
     color: transparent;
     transition: all 0.5s;
     text-align: center;
-    /* font-family: Georgia, serif; */
     font-family: system-ui;
 }
 
