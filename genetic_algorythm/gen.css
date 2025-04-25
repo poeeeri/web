@@ -8,66 +8,67 @@
     scroll-behavior: smooth;
   }
   
-  .russo-one-regular {
-    font-family: "Russo One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
+.russo-one-regular {
+  font-family: "Russo One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
-  .algorithm_show {
-    min-height: 100vh; 
-    background-color: #00090E;
-  }
+.algorithm_show {
+  min-height: 100vh; 
+  background-color: #00090E;
+}
 
-  .head {
-    display: grid;
-    grid-gap: 2em;
-    padding: 2%;
-    grid-template-columns: repeat(4, 2fr);
-    grid-auto-rows: minmax(10vh, auto);
-  }
+.head {
+  display: grid;
+  grid-gap: 2em;
+  padding: 2%;
+  grid-template-columns: repeat(4, 2fr);
+  grid-auto-rows: minmax(10vh, auto);
+}
 
-  .head a {
-    font-family: 'bitter-light';
-    font-size: 2vh;
-    align-self: center;
-	justify-self: end;
-    padding: 0.5rem 1rem;
-    background-color: #0b2d2650; 
-    color: #00df82;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    z-index: 1000;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-  }
-  .head a:hover{
-    box-shadow: 0px 5px 20px; 
-    background-color: #1a2e3900; 
+.head a {
+  font-family: 'bitter-light';
+  font-size: 2vh;
+  align-self: center;
+justify-self: end;
+  padding: 0.5rem 1rem;
+  background-color: #0b2d2650; 
+  color: #00df82;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+.head a:hover{
+  box-shadow: 0px 5px 20px; 
+  background-color: #1a2e3900; 
 
-  }
+}
 
-  .head h1 {
-    grid-column: 1/4;
-    align-self: start;
-	justify-self: start;
-    font-family: 'Russo One';
-    font-size: 8vh;
-    color: #00df82;
-  }
+.head h1 {
+  margin-top: 50px;
+  grid-column: 1/4;
+  align-self: start;
+  justify-self: start;
+  font-family: 'Russo One';
+  font-size: 8vh;
+  color: #00df82;
+}
   
   
-  #myCanvas {
-    background-color: #00090E;
-    border: 5px inset #F1F7F7;
-    border-radius: 1.5%;
-    margin-top: 1vh;
-    align-self: center;
-	justify-self: center;
-    grid-column: 1/3;
-    grid-row: 2/6;
-  }
+#myCanvas {
+  background-color: #00090E;
+  border: 5px inset #F1F7F7;
+  border-radius: 1.5%;
+  margin-top: 1vh;
+  align-self: center;
+  justify-self: center;
+  grid-column: 1/3;
+  grid-row: 2/6;
+}
 
 #count_city {
   font-family: 'bitter';
