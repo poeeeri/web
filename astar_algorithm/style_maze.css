@@ -12,21 +12,6 @@ body {
     overflow-x: hidden;
 }
 
-body::before {
-    content: '';
-    background: url('komaru.jpg') no-repeat right center;
-    background-size: contain;
-    position: fixed;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40%;
-    height: 80%;
-    opacity: 0.15;
-    filter: blur(1px);
-    z-index: 0;
-}
-
 .app-container {
     display: flex;
     flex-direction: column;
