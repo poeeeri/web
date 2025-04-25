@@ -18,19 +18,27 @@
 
         <div class="head">
             <h1>Генетический алгоритм</h1>
-            <a href="javascript:history.back()">Назад</a> 
             <span id="count_city"></span>
-            <canvas id="myCanvas" width="600" height="500" ></canvas>
+            <canvas id="myCanvas" width="600" height="400" ></canvas>
             <span id="length"></span>
             <button id="algorithm">START</button>
-            <div class="slider-container">
+            <!-- <div class="slider-container">
                 <div class="slider-wrapper">
-                  <input type="range" min="3" max="30" value="10" id="citySlider">
-                  <span class="slider-value" id="countOnSlider">10</span>
+                    <input type="range" min="3" max="30" value="10" id="citySlider">
+                    <span class="slider-value" id="countOnSlider">10</span>
                 </div>
+            </div> -->
+            <div class="slider-container">
+                <div class="range">
+                    <label for="eps_range">3</label>
+                    <input type="range" id="citySlider" value="15" min="3" max="30">
+                    <label for="eps_range">30</label>
+                </div>
+                <span class="slider-value" id="countOnSlider">10</span>
             </div>
             <span id="step_algorythm"></span>
             <button id="clear">Очистить</button>
+            <a href="javascript:history.back()">Назад</a> 
             <button id="generation_city">Сгенерировать случайно</button>
               
 
