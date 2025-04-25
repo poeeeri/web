@@ -9,10 +9,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Russo+One&display=swap" rel="stylesheet">
-  
 </head>
 <body>
-
+    <button id="nav">☰ Алгоритмы</button>
+    <nav id="hiddenNav">
+        <a href="../index.html">Главная</a>
+        <a href="../astar_algorithm/astar_maze.html">A* алгоритм</a>
+        <a href="../clusterize_algorythm/clastering.html">Кластеризация</a>
+        <a href="../genetic_algorythm/gen.html">Генетический алгоритм</a>
+        <a href="../ant_algorythm/ant.html">Муравьиный алгоритм</a>
+        <a href="../decision_tree_algorithm/decision_tree.html">Дерево решений</a>
+        <a href="../neural_network/neural.html">Нейронная сеть</a>
+    </nav>
     <section class="algorithm_show">
 
         <div class="head">
@@ -24,17 +32,17 @@
             <div class="slider-container">
                 <div class="range">
                     <label for="eps_range">3</label>
-                    <input type="range" id="citySlider" value="15" min="3" max="30">
-                    <label for="eps_range">30</label>
+                    <input type="range" id="citySlider" value="15" min="3" max="150">
+                    <label for="eps_range">150</label>
                 </div>
                 <span class="slider-value" id="countOnSlider">10</span>
             </div>
             <span id="step_algorythm"></span>
-            <button id="clear">Очистить</button>
+            <div class="buttons">
+                <button id="clear">Очистить</button>
+                <button id="generation_city">Сгенерировать случайно</button>
+            </div>
             <a href="javascript:history.back()">Назад</a> 
-            <button id="generation_city">Сгенерировать случайно</button>
-              
-
         </div>
         
     </section>
