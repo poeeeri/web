@@ -254,6 +254,51 @@ label, .count_of_points_text {
     font-family: "Russo One", sans-serif;
 }
 
+
+#nav {
+    position: fixed;
+    top: 60px;
+    left: 20px;
+    z-index: 1001;
+    background: #00DF82;
+    color: #00090E;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#hiddenNav {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100vh; 
+    background: #00090E;
+    transition: left 0.3s ease;
+    padding-top: 60px;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.5);
+    overflow-y: auto; 
+    z-index: 1000;
+}
+#hiddenNav.active {
+    left: 0;
+}
+#hiddenNav a {
+    position: relative; 
+    display: block;
+    color: #00DF82;
+    padding: 12px 16px;
+    text-decoration: none;
+    font-family: 'Bitter', serif;
+    font-size: 0.8rem;
+    border-bottom: 1px solid rgba(0,223,130,0.2);
+}
+#hiddenNav a:hover {
+    background: rgba(0,223,130,0.1);
+}
+
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
