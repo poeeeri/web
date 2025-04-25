@@ -31,8 +31,8 @@ function drawGrid(){
     for (let y = 0; y < gridSize; y++){
         for (let x = 0; x < gridSize; x++){
             switch(grid[y][x]){
-                case 0: ctx.fillStyle = "#444"; break; // стена
-                case 1: ctx.fillStyle = "#fff"; break; // проход
+                case 0: ctx.fillStyle = "black"; break; // стена
+                case 1: ctx.fillStyle = "#0b332e"; break; // проход
                 case 2: ctx.fillStyle = "greenyellow"; break; // старт
                 case 3: ctx.fillStyle = "red"; break; // финиш
                 case 4: ctx.fillStyle = "cyan"; break; // путь найден
