@@ -143,7 +143,7 @@ header {
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    background-color: rgba(21, 52, 41, 0.3);
+    background-color: #1433284d;
     border-radius: 8px;
     margin:5px;
     backdrop-filter: blur(5px);
@@ -188,6 +188,24 @@ input[type="range"]:hover::-webkit-slider-thumb {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
+.canvas_block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.info_text {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: rgba(20, 50, 40, 0.3);
+    color: white;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 14px;
+    max-width: 300px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
 
 .canvas_clasterization {
     background-color: #15352488;
@@ -197,11 +215,14 @@ input[type="range"]:hover::-webkit-slider-thumb {
     margin-bottom: 20px; 
     margin-right: 100px;
     margin-left: 50px;
+    display: flex;
     border: 1px solid rgba(0, 0, 0, 0.089);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 255, 85, 0.742);
 }
 
-#canvas_for_clusterization {
+#canvas_for_clusterization1,
+#canvas_for_clusterization2,
+#canvas_for_clusterization3 {
     border-radius: 8px;
     border: 1px solid #000;
     background: #ffffff;
@@ -214,6 +235,22 @@ label, .count_of_points_text {
     color:#ffffffd0;
     text-shadow: 1px 2px 3px rgba(0,0,0,0.2);
     margin-bottom: 5px;
+}
+
+@media (max-width: 1000) {
+    .container {
+        flex-direction: column;
+    }
+
+    .text_h1 {
+        width: auto;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    input[type="range"] {
+        width: 200px;
+    }
 }
 
 @media (max-width: 768) {

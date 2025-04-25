@@ -5,7 +5,7 @@ document.getElementById("start_clasterization").addEventListener("click", functi
     }
     const k = parseInt(document.getElementById("k_value").textContent);
     setupKMeans(k);
-    info.textContent = `Найдено кластеров: ${assignments.length}`;
+    info1.textContent = `Кластеров: ${k}`;
 });
 
 function setupKMeans(k) {
@@ -110,12 +110,15 @@ function moveMeans(assignments) {
 }
 
 function drawClusters(assignments){
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const canvas1 = document.getElementById("canvas_for_clusterization1");
+    const ctx1 = canvas1.getContext("2d");
+    ctx1.clearRect(0, 0, canvas1.width, canvas1.height);
     const colors = ["red", "blue", "green", "purple", "orange", "white", "magenta"];
     for (let i = 0; i < points.length; i++) {
         const point = points[i];
         const cluster = assignments[i];
-        drawPoint(point.x, point.y, colors[cluster]);
+        point.color = colors[cluster % colors.length];
+        drawPointOn(ctx1, point);
     }
 }
 
