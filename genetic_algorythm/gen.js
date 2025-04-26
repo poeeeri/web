@@ -32,8 +32,6 @@ canvas.onmousedown = function(event) {
     point.y = event.offsetY;
     point.number = count_citys;
     points.push(point);
-    console.log('массив точек:', points);
-    console.log('Клик на canvas произошел в точке:', point.x, point.y);
     ctx.beginPath();
     ctx.lineWidth = 2;
     ctx.strokeStyle = "#00DF82";
@@ -42,9 +40,8 @@ canvas.onmousedown = function(event) {
     ctx.stroke();
     ctx.fill();
     count_citys++;
-    
+
     // ОТОБРАЖЕНИЕ ТЕКУЩЕГО КОЛИЧЕСТВА ДОВ НА КАРТЕ
-    console.log('Количество городов:', count_citys);
     count.innerHTML = "Количество городов на карте: " + count_citys;
     ctx.closePath();
 }
@@ -194,7 +191,7 @@ function create_population(matrix_length){
     }
 
     if (attempts >= maxAttempts) {
-        console.warn("Превышено количество попыток генерации популяции. Возможно, слишком мало уникальных маршрутов.");
+        alert("Превышено количество попыток генерации популяции. Возможно, слишком мало уникальных маршрутов.");
     }
 
     return result;
@@ -203,7 +200,6 @@ function create_population(matrix_length){
 }
 
 function calculating_length_and_fitness_in_population(matrix_length, population){
-   
     for (let i = 0; i < population.length; i++){
         let len = 0;
         population[i].route.unshift(0);
@@ -266,7 +262,6 @@ function crossover(matrix_length, population){
     sort_fitness(population);
 
     return offsprings;
-   
 }
 
 
@@ -278,7 +273,6 @@ function mutation(matrix_length, offsprings) {
     for (let i = 0; i < mutation_offsprings.length; i++) {
 
         if (Math.random() < percentage_of_mutations) {
-      
             let start = getRandomInt(0, offsprings[i].route.length - 1);
             let end = getRandomInt(start, offsprings[i].route.length - 1);
 
@@ -305,7 +299,7 @@ function run_gen_algorithm(matrix_length, population){
 
     //сортируем и оставляем лучших
     let result_population = [];
-   
+
     // добавляем старую популяцию
     for (let i = 0; i < population.length; i++) {
         result_population.push(population[i]);
@@ -342,21 +336,17 @@ algorithm.addEventListener('click', async () => {
             }
         }
     }
-    console.log('массив длин:', matrix_length);
     
     var population = create_population(matrix_length);
     calculating_length_and_fitness_in_population(matrix_length, population);
     sort_fitness(population);
-    console.log('начальная популяция', population);
     for (let i = 0; i < points.length*15; i++){
         population = run_gen_algorithm(matrix_length, population);
-        console.log('лучшая особь: ', population[0]);
         let best_rout = [...population[0].route];
         best_rout.unshift(0);
         best_rout.push(0);
 
         drawRouteWithPoints(best_rout, points);
-        console.log(`Шаг ${i + 1}: длина маршрута — ${population[0].length_route.toFixed(2)}`);
         route_len.innerHTML = "Длина маршрута: " + population[0].length_route.toFixed(2);
         step_algorythm.innerHTML = "Итерация: " + (i+1) + " из " + points.length*15;
 
@@ -366,11 +356,6 @@ algorithm.addEventListener('click', async () => {
         await new Promise(resolve => setTimeout(resolve, 100));
 
     }
-
-    console.log('Финальный маршрут: ', population[0]);
-    // console.log('случайное число: ', getRandomInt(4,4));
-
-
 });
 
 
