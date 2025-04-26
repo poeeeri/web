@@ -3,21 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A* Визуализация</title>
+    <title>A* Алгоритм</title>
     <link rel="stylesheet" href="style_maze.css">
 </head>
 <body>
-    <h1>A* Визуализация</h1>
-    <div id="grid"></div>
+    <h1>A* Алгоритм</h1>
+
+    <div class="size-control">
+        <label for="gridSizeInput">Размер поля:</label>
+        <input type="number" id="gridSizeInput" min="5" max="50" value="5">
+        <button id="applySizeButton">Применить размер</button>
+    </div>
+    <canvas id="mazeCanvas" width="620" height="620"></canvas>
+    <button id="clearFieldButton">Очистить поле</button>
+    <button id="findPathButton">Найти путь</button>
+    <button id="generateMazeButton">Сгенерировать лабиринт</button>
+
     
-    <button id="generateButton">Сгенерировать лабиринт</button>
-    <button id="searchPath">Найти путь</button>
-    <button id="clearField"></button>
 
     <a href="javascript:history.back()">Назад</a>
     <script src="astar.js"></script>
+
+
 </body>
-</html
+</html>
 
 
 
